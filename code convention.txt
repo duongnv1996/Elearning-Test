@@ -1,0 +1,43 @@
+﻿# Convention Code : Quy luật làm việc nhóm.
+Làm việc nhóm mỗi người 1 kiểu đặt tên khác nhau. Nên nhũng người làm module sau rất khó hiểu code. Nên cần có quy định code rõ ràng để cho các nhóm biết.
+1. Update và commit code thường xuyên sau khi kết thúc phiên làm việc.
+2. Phân chia thư mục chứa file hợp lý, đánh tên rõ ràng.
+3.  Code  : 
+
+- Nếu có class trong code : đặt tên class theo kiểu : Chữ cái đầu in hoa, Các chữ cái đầu các từ tiếp theo in hoa. Tên phải là 1 danh từ. dễ hiểu, ngắn gọn.
+VD : class ElearningTest{  
+
+};
+
+- Các hàm và thủ tục hàm phải bắt đầu bằng 1 động từ, viết rõ ràng , biểu thị chức năng của hàm cũng như thủ tục hàm. viết in thường chữ cái đầu của từ đầu tiên. 
+Các từ tiếp theo viết hoa chữ cái đầu.
+VD : sub getValue(){
+
+}
+
+- Biến và hằng : các biến đặt tên ngắn gọn, chữ cái đầu của từ đầu tiên viết thường, các chữ cái đầu của từ tiếp theo in hoa(tương tự hàm), tên cần có ý nghĩa. để 
+người khác đọc code còn biết biến lưu cái gì.
+
+các biến khác trong vung public thì đặt m+tenBien; VD : private mArray; 
+ các biến kiểu bool ( đúng sai) : đặt tên : is+tenBien; VD : isFull, isEmpty, isTrue;
+
+
+- biến hằng const luôn viết HOA tất cả các chữ cái. ngăn cách các từ bời "_" vd : const CODE_EMPTY_DATABASE ;
+v.v.v
+
+
+
+- quy tắc đặt dấu { };
+ các hàm và class hay thủ tục hàm,dấu { được đặt ngay sau tên class hoặt tham số truyền vào của hàm; dấu } phải viết xuống 1 dòng so với code.
+VD : class Student{
+
+} 
+VD : sub doSomething(int a){
+
+
+}
+
+
+.
+Tạm thời như vậy đã. đây là code convention sẽ được áp dụng khi đi làm thực tế. nên ban đầu hơi khó chịu, sau này quen thì mới theo kịp người khác.
+Mong mọi người giữ đúng quy tắc!
