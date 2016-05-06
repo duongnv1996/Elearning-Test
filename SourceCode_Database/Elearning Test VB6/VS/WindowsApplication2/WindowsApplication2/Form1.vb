@@ -14,17 +14,34 @@ Public Class fmAdd
     Private cAns As String
     Private cTrueAns As String
     Private mSubject As String
-    Private con As New SqlConnection("Data Source=DUONG_DEP_TRAI;Initial Catalog=db_question;Integrated Security=True")
+    Private con As New SqlConnection("Data Source=MAYTINH-JRUTQDS;Initial Catalog=db_question;Integrated Security=True")
 
 
 
     Private Sub fmAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Db_questionDataSet.t_subject' table. You can move, or remove it, as needed.
-        Me.T_subjectTableAdapter.Fill(Me.Db_questionDataSet.t_subject)
-        'TODO: This line of code loads data into the 'Db_questionDataSet.t_answer' table. You can move, or remove it, as needed.
-        Me.T_answerTableAdapter.Fill(Me.Db_questionDataSet.t_answer)
-        'TODO: This line of code loads data into the 'Db_questionDataSet.t_question' table. You can move, or remove it, as needed.
-        Me.T_questionTableAdapter.Fill(Me.Db_questionDataSet.t_question)
+        
+        'Try
+        '    con.Open()
+        '    Dim deleteSub As New SqlCommand("Delete  FROM  t_subject", con)
+        '    Dim deleteAns As New SqlCommand("Delete  FROM  t_answer", con)
+        '    Dim deleteQuest As New SqlCommand("Delete FROM t_quest", con)
+        '    deleteSub.ExecuteNonQuery()
+        '    deleteQuest.ExecuteNonQuery()
+        '    deleteAns.ExecuteNonQuery()
+        '    'MsgBox("Mo thanh cong DB")
+
+        '    con.Close()
+        'Catch ex As Exception
+        '    MsgBox("Loi roi " & ex.Message.ToString)
+
+        'End Try
+
+        'TODO: This line of code loads data into the 'db_questionDataSet1.t_subject' table. You can move, or remove it, as needed.
+        Me.T_subjectTableAdapter.Fill(Me.db_questionDataSet1.t_subject)
+        'TODO: This line of code loads data into the 'db_questionDataSet1.t_answer' table. You can move, or remove it, as needed.
+        Me.T_answerTableAdapter.Fill(Me.db_questionDataSet1.t_answer)
+        'TODO: This line of code loads data into the 'db_questionDataSet1.t_question' table. You can move, or remove it, as needed.
+        Me.T_questionTableAdapter.Fill(Me.db_questionDataSet1.t_question)
 
         lstQuestion.HorizontalScrollbar = True
         Me.AutoSize = True
@@ -93,7 +110,6 @@ Public Class fmAdd
         ' Find the last cell in the column.
         range = sheet.Columns(col)
         last_cell = range.End(Excel.XlDirection.xlDown)
-
         ' Get a Range holding the values.
         first_cell = sheet.Cells(row, col)
         value_range = sheet.Range(first_cell, last_cell)
@@ -187,14 +203,15 @@ Public Class fmAdd
     End Sub
 
     Private Sub cmdFile_Click(sender As Object, e As EventArgs) Handles cmdFile.Click
+        OpenFileDialog1.Filter = "Excel Worksheets|*.xls;*.xlsx"
         OpenFileDialog1.ShowDialog()
     End Sub
 
     Private Sub btnAddDB_Click(sender As Object, e As EventArgs) Handles btnAddDB.Click
         Dim isAdd As Boolean
         isAdd = False
+        
 
-       
         If (txtMonHoc.Text.Trim.ToString.Length > 0 And txtIDSub.Text.Trim.ToString.Length > 0 And txtCQuest.Text.Trim.ToString.Length > 0 And txtTrueAns.Text.Trim.ToString.Length > 0) Then
             mSubject = txtMonHoc.Text.Trim.ToString
             cQuest = txtCQuest.Text.ToString.Trim
@@ -204,79 +221,67 @@ Public Class fmAdd
             Try
                 con.Open()
                 'Them vao bang t_subject
-                Dim sqlSelect As New SqlCommand("select * from t_subject where id_subject='" + idSubject + "'", con)
-                Dim pos As Integer = sqlSelect.ExecuteNonQuery()
+                Dim queryString As String = "select * from t_subject where id_subject=@idSubject"
+                Dim sqlSelect As New SqlCommand(queryString, con)
+                sqlSelect.Parameters.AddWithValue("@idSubject", idSubject)
 
-                If (pos <> 0) Then
-                    Dim sql As New SqlCommand("insert into t_subject (id_subject,content_subject) values (N'" + idSubject + "',N'" + mSubject + "')", con)
+                Dim isExist As Boolean = False
+                Using reader As SqlDataReader = sqlSelect.ExecuteReader()
+                    If (reader.HasRows) Then
+                        isExist = True
+                    End If
+                End Using
+
+                If isExist <> True Then
+
+                    Dim sql As New SqlCommand("insert into t_subject (id_subject,content_subject) values (N'" & idSubject & "',N'" & mSubject & "')", con)
+
                     sql.ExecuteNonQuery()
-                   
-                   
-
-
-                  
-
-
                     'Them vao bang question
                     If (lstQuestion.Items.Count > 0) Then
                         Dim idQ As Integer = -1
                         For Each item In lstQuestion.Items
                             If (item.ToString.Equals("") <> True) Then
-
                                 If (item.ToString.Contains(cQuest)) Then
-                                    Dim sqlInsertQ As New SqlCommand("insert into t_question (content_quest,id_subject) values (N'" + item.ToString + "',N'" + idSubject + "')SELECT SCOPE_IDENTITY();", con)
-
-                                    idQ = Integer.Parse(sqlInsertQ.ExecuteScalar().ToString())
-
+                                    Dim sqlInsertQ As New SqlCommand("insert into t_question (content_quest,id_subject) values (N'" & item.ToString & "',N'" & idSubject & "')SELECT SCOPE_IDENTITY();", con)
+                                    idQ = CInt(sqlInsertQ.ExecuteScalar())
                                 ElseIf (item.ToString.Contains(cTrueAns)) Then
-                                    Dim sqlInsertT As New SqlCommand("insert into t_answer (content_ans,id_subject,id_quest,true_ans) values (N'" + item.ToString + "','" + idSubject + "','" + idQ + "','1')", con)
+                                    Dim sT As String
+                                    sT = "Insert into t_answer(content_ans,id_subject,id_quest,true_ans) values (N'" & item.ToString.Trim & "'" & "," & "'" & idSubject.ToString & "'" & "," & idQ & "," & 1 & ")"
+                                    Dim sqlInsertT As New SqlCommand(sT, con)
                                     sqlInsertT.ExecuteNonQuery()
                                 Else
-                                    Dim sqlInsertA As New SqlCommand("insert into t_answer (content_ans,id_subject,id_quest,true_ans) values (N'" + item.ToString + "','" + idSubject + "','" + idQ + "','0')", con)
+                                    Dim s As String
+                                    s = "Insert into t_answer(content_ans,id_subject,id_quest,true_ans) values (N'" & item.ToString.Trim & "'" & "," & "'" & idSubject.ToString & "'" & "," & idQ & "," & 0 & ")"
+                                    Dim sqlInsertA As New SqlCommand(s, con)
                                     sqlInsertA.ExecuteNonQuery()
                                 End If
                             End If
-
-
                         Next
                     End If
-
-
-
-
-
-                    Me.T_subjectTableAdapter.Fill(Me.Db_questionDataSet.t_subject)
-                    Me.T_answerTableAdapter.Fill(Me.Db_questionDataSet.t_answer)
-                    Me.T_questionTableAdapter.Fill(Me.Db_questionDataSet.t_question)
+                    Me.T_subjectTableAdapter.Fill(Me.db_questionDataSet1.t_subject)
+                    Me.T_answerTableAdapter.Fill(Me.db_questionDataSet1.t_answer)
+                    Me.T_questionTableAdapter.Fill(Me.db_questionDataSet1.t_question)
                     MsgBox("Thêm thành công " & mSubject, vbOKOnly, "Thông báo")
+
+
                 Else
                     MsgBox("ID môn học : " & idSubject & " đã tồn tại. Vui lòng chọn mã ID khác", vbOKOnly, "Lỗi ID")
-                    con.Close()
+
                 End If
+
+
                 con.Close()
             Catch ex As Exception
-                MsgBox("Không thể thêm " & mSubject & " do " & ex.Data.ToString, vbOKOnly, "Thông báo")
+                MsgBox("Không thể thêm " & " do " & ex.Message, vbOKOnly, "Thông báo")
+                con.Close()
             End Try
 
-            
+
         Else
             MsgBox("Vui lòng điền đầy đủ thông tin", vbOK, "Thông báo")
         End If
     End Sub
-
-    'Private Function getIdSubject(subject As String) As String
-    '    Dim id As String
-    '    Dim i As Integer
-    '    subject = getGreatString(subject)
-    '    For i = 0 To subject.ToString.Length
-    '        If (subject.Substring(i).Equals(" ")) Then
-
-    '        End If
-    '    Next i
-
-
-    '    getIdSubject = "a"
-    'End Function
     Private Function getGreatString(str As String) As String
         Dim s$
         s = ""
@@ -323,4 +328,24 @@ Public Class fmAdd
     End Function
 
 
+    Private Sub T_answerDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles T_answerDataGridView.CellContentClick
+
+    End Sub
+    Private Sub T_questionDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.CellContentClick
+
+    End Sub
+    Private Sub T_subjectDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles T_subjectDataGridView.CellContentClick
+        ' MsgBox(T_subjectDataGridView.CurrentRow.Cells.Item(1).Value.ToString())
+        MsgBox(T_subjectDataGridView(T_subjectDataGridView.CurrentCell.RowIndex, T_subjectDataGridView.CurrentRow.Index).Value.ToString)
+
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
+
+    Private Sub T_subjectDataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles T_subjectDataGridView.CellValueChanged
+        MsgBox("kkk")
+    End Sub
 End Class

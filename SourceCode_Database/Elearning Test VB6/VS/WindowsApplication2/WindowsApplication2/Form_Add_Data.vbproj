@@ -72,13 +72,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="db_questionDataSet.Designer.vb">
+    <Compile Include="db_questionDataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>db_questionDataSet.xsd</DependentUpon>
+      <DependentUpon>db_questionDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="db_questionDataSet.vb">
-      <DependentUpon>db_questionDataSet.xsd</DependentUpon>
+    <Compile Include="db_questionDataSet1.vb">
+      <DependentUpon>db_questionDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -116,16 +116,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="db_questionDataSet.xsc">
-      <DependentUpon>db_questionDataSet.xsd</DependentUpon>
+    <None Include="db_questionDataSet1.xsc">
+      <DependentUpon>db_questionDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="db_questionDataSet.xsd">
+    <None Include="db_questionDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>db_questionDataSet.Designer.vb</LastGenOutput>
+      <LastGenOutput>db_questionDataSet1.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="db_questionDataSet.xss">
-      <DependentUpon>db_questionDataSet.xsd</DependentUpon>
+    <None Include="db_questionDataSet1.xss">
+      <DependentUpon>db_questionDataSet1.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

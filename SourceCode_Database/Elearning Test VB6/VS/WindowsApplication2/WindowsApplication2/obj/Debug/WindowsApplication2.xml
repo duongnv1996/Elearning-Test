@@ -6,119 +6,119 @@ WindowsApplication2
 </name>
 </assembly>
 <members>
-<member name="T:WindowsApplication2.db_questionDataSet.t_answerDataTable">
+<member name="T:WindowsApplication2.db_questionDataSet1.t_answerDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_markDataTable">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_markDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_questionDataTable">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_questionDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_subjectDataTable">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_subjectDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_userDataTable">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_userDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_answerRow">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_answerRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_markRow">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_markRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_questionRow">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_questionRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_subjectRow">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_subjectRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_userRow">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_userRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_answerRowChangeEvent">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_answerRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_markRowChangeEvent">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_markRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_questionRowChangeEvent">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_questionRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_subjectRowChangeEvent">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_subjectRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet.t_userRowChangeEvent">
+</member><member name="T:WindowsApplication2.db_questionDataSet1.t_userRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSet">
+</member><member name="T:WindowsApplication2.db_questionDataSet1">
 	<summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSetTableAdapters.t_answerTableAdapter">
+</member><member name="T:WindowsApplication2.db_questionDataSet1TableAdapters.t_answerTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSetTableAdapters.t_markTableAdapter">
+</member><member name="T:WindowsApplication2.db_questionDataSet1TableAdapters.t_markTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSetTableAdapters.t_questionTableAdapter">
+</member><member name="T:WindowsApplication2.db_questionDataSet1TableAdapters.t_questionTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSetTableAdapters.t_subjectTableAdapter">
+</member><member name="T:WindowsApplication2.db_questionDataSet1TableAdapters.t_subjectTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSetTableAdapters.t_userTableAdapter">
+</member><member name="T:WindowsApplication2.db_questionDataSet1TableAdapters.t_userTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="M:WindowsApplication2.db_questionDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(WindowsApplication2.db_questionDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+</member><member name="M:WindowsApplication2.db_questionDataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(WindowsApplication2.db_questionDataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
 	<summary>
 Update rows in top-down order.
 </summary>
-</member><member name="M:WindowsApplication2.db_questionDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(WindowsApplication2.db_questionDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+</member><member name="M:WindowsApplication2.db_questionDataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(WindowsApplication2.db_questionDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
 	<summary>
 Insert rows in top-down order.
 </summary>
-</member><member name="M:WindowsApplication2.db_questionDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(WindowsApplication2.db_questionDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+</member><member name="M:WindowsApplication2.db_questionDataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(WindowsApplication2.db_questionDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
 	<summary>
 Delete rows in bottom-up order.
 </summary>
-</member><member name="M:WindowsApplication2.db_questionDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+</member><member name="M:WindowsApplication2.db_questionDataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
 	<summary>
 Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
 </summary>
-</member><member name="M:WindowsApplication2.db_questionDataSetTableAdapters.TableAdapterManager.UpdateAll(WindowsApplication2.db_questionDataSet)">
+</member><member name="M:WindowsApplication2.db_questionDataSet1TableAdapters.TableAdapterManager.UpdateAll(WindowsApplication2.db_questionDataSet1)">
 	<summary>
 Update all changes to the dataset.
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+</member><member name="T:WindowsApplication2.db_questionDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
 	<summary>
 Update Order Option
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+</member><member name="T:WindowsApplication2.db_questionDataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
 	<summary>
 Used to sort self-referenced table's rows
 </summary>
-</member><member name="T:WindowsApplication2.db_questionDataSetTableAdapters.TableAdapterManager">
+</member><member name="T:WindowsApplication2.db_questionDataSet1TableAdapters.TableAdapterManager">
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
