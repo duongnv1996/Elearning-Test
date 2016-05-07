@@ -25,8 +25,8 @@ Partial Class Form1
         Me.txtname = New System.Windows.Forms.Label()
         Me.txtpass = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtuser = New System.Windows.Forms.TextBox()
+        Me.txtpas = New System.Windows.Forms.TextBox()
         Me.btncan = New System.Windows.Forms.Button()
         Me.btnlog = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -67,20 +67,20 @@ Partial Class Form1
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "LOGIN"
         '
-        'TextBox1
+        'txtuser
         '
-        Me.TextBox1.Location = New System.Drawing.Point(100, 65)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(135, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.txtuser.Location = New System.Drawing.Point(100, 65)
+        Me.txtuser.Name = "txtuser"
+        Me.txtuser.Size = New System.Drawing.Size(135, 20)
+        Me.txtuser.TabIndex = 1
         '
-        'TextBox2
+        'txtpas
         '
-        Me.TextBox2.Location = New System.Drawing.Point(100, 148)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox2.Size = New System.Drawing.Size(135, 20)
-        Me.TextBox2.TabIndex = 1
+        Me.txtpas.Location = New System.Drawing.Point(100, 148)
+        Me.txtpas.Name = "txtpas"
+        Me.txtpas.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtpas.Size = New System.Drawing.Size(135, 20)
+        Me.txtpas.TabIndex = 1
         '
         'btncan
         '
@@ -113,13 +113,13 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(284, 261)
         Me.Controls.Add(Me.btnlog)
         Me.Controls.Add(Me.btncan)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtpas)
+        Me.Controls.Add(Me.txtuser)
         Me.Controls.Add(Me.txtpass)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtname)
         Me.Name = "Form1"
-        Me.Text = "Login"
+        Me.Text = "ẻ gi"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -127,8 +127,8 @@ Partial Class Form1
     Friend WithEvents txtname As System.Windows.Forms.Label
     Friend WithEvents txtpass As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtuser As System.Windows.Forms.TextBox
+    Friend WithEvents txtpas As System.Windows.Forms.TextBox
     Friend WithEvents btncan As System.Windows.Forms.Button
     Friend WithEvents btnlog As System.Windows.Forms.Button
 
