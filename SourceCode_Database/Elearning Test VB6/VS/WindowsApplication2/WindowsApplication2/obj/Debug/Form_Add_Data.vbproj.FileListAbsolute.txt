@@ -1,0 +1,22 @@
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.xml
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\Form_Add_Data.vbproj.ResolveComReference.cache
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.fmAdd.resources
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.Resources.resources
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\Form_Add_Data.vbproj.GenerateResource.Cache
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.xml
+C:\Users\DuongKK\Documents\Visual Studio 2012\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\Form_Add_Data.vbproj.ResolveComReference.cache
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.xml
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.xml
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.fmAdd.resources
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.Resources.resources
+D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\Form_Add_Data.vbproj.GenerateResource.Cache
