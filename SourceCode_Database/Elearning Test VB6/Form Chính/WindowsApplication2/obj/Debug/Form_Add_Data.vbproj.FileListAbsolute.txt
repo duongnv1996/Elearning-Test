@@ -25,3 +25,8 @@ D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test V
 D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.FmLogin.resources
 D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.FmSubject.resources
 D:\Language Program\Windowns\Elearning-Test\SourceCode_Database\Elearning Test VB6\VS\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.FmTesting.resources
+D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\Form_Add_Data.vbproj.ResolveComReference.cache
+D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.xml
+D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.pdb

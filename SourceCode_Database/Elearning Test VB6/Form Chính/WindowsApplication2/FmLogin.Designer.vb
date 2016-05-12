@@ -28,7 +28,7 @@ Partial Class FmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(544, 320)
         Me.Name = "FmLogin"
         Me.Text = "Đăng Nhập"
         Me.ResumeLayout(False)

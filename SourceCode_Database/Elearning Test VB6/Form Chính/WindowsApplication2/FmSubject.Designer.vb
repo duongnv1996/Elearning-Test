@@ -28,7 +28,7 @@ Partial Class FmSubject
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(984, 741)
         Me.Name = "FmSubject"
         Me.Text = "Chọn Môn Học"
         Me.ResumeLayout(False)
