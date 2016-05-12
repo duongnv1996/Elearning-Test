@@ -511,6 +511,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Add Property-96.png" />
+    <None Include="Resources\it.jpg" />
+    <None Include="Resources\cfgc.jpg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
