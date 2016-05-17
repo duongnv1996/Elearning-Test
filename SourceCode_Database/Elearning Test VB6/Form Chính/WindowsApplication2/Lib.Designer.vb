@@ -81,6 +81,7 @@ Partial Class fmAdd
         '
         Me.cmdRead.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdRead.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cmdRead.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdRead.Location = New System.Drawing.Point(1124, 15)
         Me.cmdRead.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdRead.Name = "cmdRead"
@@ -102,20 +103,22 @@ Partial Class fmAdd
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label1.Location = New System.Drawing.Point(539, 21)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 17)
+        Me.Label1.Size = New System.Drawing.Size(95, 16)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Đường dẫn File"
         '
         'lblTitle1
         '
         Me.lblTitle1.AutoSize = True
+        Me.lblTitle1.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.lblTitle1.Location = New System.Drawing.Point(253, 177)
         Me.lblTitle1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTitle1.Name = "lblTitle1"
-        Me.lblTitle1.Size = New System.Drawing.Size(64, 17)
+        Me.lblTitle1.Size = New System.Drawing.Size(64, 16)
         Me.lblTitle1.TabIndex = 3
         Me.lblTitle1.Text = "CÂU HỎI"
         '
@@ -126,6 +129,7 @@ Partial Class fmAdd
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lstQuestion.ColumnWidth = 600
         Me.lstQuestion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.lstQuestion.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.lstQuestion.FormattingEnabled = True
         Me.lstQuestion.HorizontalExtent = 100
         Me.lstQuestion.HorizontalScrollbar = True
@@ -143,10 +147,11 @@ Partial Class fmAdd
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label2.Location = New System.Drawing.Point(16, 80)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(161, 17)
+        Me.Label2.Size = New System.Drawing.Size(147, 16)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Ký tự phân biệt câu hỏi :"
         '
@@ -164,10 +169,11 @@ Partial Class fmAdd
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label4.Location = New System.Drawing.Point(17, 113)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(213, 17)
+        Me.Label4.Size = New System.Drawing.Size(194, 16)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Ký tự phân biệt câu trả lời đúng :"
         '
@@ -185,10 +191,11 @@ Partial Class fmAdd
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label3.Location = New System.Drawing.Point(17, 21)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(95, 17)
+        Me.Label3.Size = New System.Drawing.Size(87, 16)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "Tên môn học:"
         '
@@ -342,10 +349,11 @@ Partial Class fmAdd
         Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label5.Location = New System.Drawing.Point(920, 300)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(93, 17)
+        Me.Label5.Size = New System.Drawing.Size(83, 16)
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "Bảng Câu hỏi"
         '
@@ -354,10 +362,11 @@ Partial Class fmAdd
         Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label6.Location = New System.Drawing.Point(920, 177)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(99, 17)
+        Me.Label6.Size = New System.Drawing.Size(90, 16)
         Me.Label6.TabIndex = 15
         Me.Label6.Text = "Bảng môn học"
         '
@@ -366,15 +375,17 @@ Partial Class fmAdd
         Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label7.Location = New System.Drawing.Point(920, 500)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(107, 17)
+        Me.Label7.Size = New System.Drawing.Size(96, 16)
         Me.Label7.TabIndex = 16
         Me.Label7.Text = "Bảng câu trả lời"
         '
         'btnAddDB
         '
+        Me.btnAddDB.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.btnAddDB.Location = New System.Drawing.Point(512, 342)
         Me.btnAddDB.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAddDB.Name = "btnAddDB"
@@ -387,6 +398,7 @@ Partial Class fmAdd
         '
         Me.cmdFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdFile.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cmdFile.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdFile.Location = New System.Drawing.Point(1263, 15)
         Me.cmdFile.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdFile.Name = "cmdFile"
@@ -398,10 +410,11 @@ Partial Class fmAdd
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label8.Location = New System.Drawing.Point(17, 53)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(83, 17)
+        Me.Label8.Size = New System.Drawing.Size(80, 16)
         Me.Label8.TabIndex = 20
         Me.Label8.Text = "ID môn học:"
         '
@@ -419,6 +432,7 @@ Partial Class fmAdd
         '
         Me.cmdUpdateDB.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdUpdateDB.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cmdUpdateDB.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdUpdateDB.Location = New System.Drawing.Point(512, 423)
         Me.cmdUpdateDB.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdUpdateDB.Name = "cmdUpdateDB"
@@ -457,6 +471,7 @@ Partial Class fmAdd
         '
         'cmdUndo
         '
+        Me.cmdUndo.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdUndo.Location = New System.Drawing.Point(512, 504)
         Me.cmdUndo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdUndo.Name = "cmdUndo"

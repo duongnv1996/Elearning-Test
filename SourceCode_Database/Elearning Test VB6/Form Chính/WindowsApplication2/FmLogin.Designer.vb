@@ -62,7 +62,7 @@ Partial Class FmLogin
         Me.Button1.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Maroon
         Me.Button1.Location = New System.Drawing.Point(624, 431)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(179, 64)
         Me.Button1.TabIndex = 4
@@ -72,7 +72,7 @@ Partial Class FmLogin
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(624, 282)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(483, 22)
         Me.TextBox1.TabIndex = 5
@@ -80,7 +80,7 @@ Partial Class FmLogin
         'TextBox2
         '
         Me.TextBox2.Location = New System.Drawing.Point(624, 340)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(483, 22)
         Me.TextBox2.TabIndex = 6
@@ -90,7 +90,7 @@ Partial Class FmLogin
         Me.Button2.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Maroon
         Me.Button2.Location = New System.Drawing.Point(915, 431)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(193, 63)
         Me.Button2.TabIndex = 7
@@ -110,7 +110,7 @@ Partial Class FmLogin
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FmLogin"
         Me.Text = "Đăng Nhập"
         Me.ResumeLayout(False)

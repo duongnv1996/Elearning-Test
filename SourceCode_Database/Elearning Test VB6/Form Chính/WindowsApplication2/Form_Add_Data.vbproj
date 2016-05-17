@@ -93,6 +93,12 @@
     <Compile Include="Admin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Component1.Designer.vb">
+      <DependentUpon>Component1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Component1.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="db_questionDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +122,8 @@
     <Compile Include="FmTesting.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ItemAnswer.vb" />
+    <Compile Include="ItemQuest.vb" />
     <Compile Include="Lib.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +157,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component1.resx">
+      <DependentUpon>Component1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmLogin.resx">
       <DependentUpon>FmLogin.vb</DependentUpon>
