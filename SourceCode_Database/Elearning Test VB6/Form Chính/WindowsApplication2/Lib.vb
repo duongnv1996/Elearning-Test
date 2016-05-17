@@ -166,7 +166,8 @@ Public Class fmAdd
  ByVal e As System.Windows.Forms.DrawItemEventArgs) _
  Handles lstQuestion.DrawItem
 
-
+        cQuest = txtCQuest.Text.ToString.Trim
+        cTrueAns = txtTrueAns.Text.ToString.Trim
         ' Draw the background of the ListBox control for each item.
         e.DrawBackground()
 
@@ -188,10 +189,10 @@ Public Class fmAdd
         ' Draw the current item text based on the current 
         ' Font and the custom brush settings.
 
-        If (lstQuestion.Items(e.Index).ToString().Contains("*")) Then
+        If (lstQuestion.Items(e.Index).ToString().Contains(cTrueAns)) Then
             e.Graphics.DrawString(lstQuestion.Items(e.Index).ToString(), _
            e.Font, Brushes.Red, e.Bounds, StringFormat.GenericDefault)
-        ElseIf (lstQuestion.Items(e.Index).ToString().Contains("?")) Then
+        ElseIf (lstQuestion.Items(e.Index).ToString().Contains(cQuest)) Then
             e.Graphics.DrawString(lstQuestion.Items(e.Index).ToString(), _
           e.Font, Brushes.Blue, e.Bounds, StringFormat.GenericDefault)
         Else

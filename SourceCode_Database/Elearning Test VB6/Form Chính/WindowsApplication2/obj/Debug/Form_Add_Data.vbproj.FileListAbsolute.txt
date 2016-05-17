@@ -30,3 +30,19 @@ D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form 
 D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.exe
 D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.xml
 D:\Lap Trinh Windows\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\Form_Add_Data.vbproj.ResolveComReference.cache
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.xml
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\bin\Debug\WindowsApplication2.xml
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.Admin.resources
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.FmLogin.resources
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.FmSubject.resources
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.FmTesting.resources
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.fmAdd.resources
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.Resources.resources
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\WindowsApplication2.fmstudentManager.resources
+C:\Users\MyPC\Desktop\Elearning-Test\SourceCode_Database\Elearning Test VB6\Form Chính\WindowsApplication2\obj\Debug\Form_Add_Data.vbproj.GenerateResource.Cache
