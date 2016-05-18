@@ -122,6 +122,7 @@
     <Compile Include="FmTesting.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Item.vb" />
     <Compile Include="ItemAnswer.vb" />
     <Compile Include="ItemQuest.vb" />
     <Compile Include="Lib.vb">

@@ -28,7 +28,7 @@ Partial Class FmTesting
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Button21 = New System.Windows.Forms.Button()
+        Me.btnNopBai = New System.Windows.Forms.Button()
         Me.Button20 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
@@ -52,6 +52,8 @@ Partial Class FmTesting
         Me.T_answerTableAdapter1 = New WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -124,7 +126,7 @@ Partial Class FmTesting
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox4.Controls.Add(Me.Button21)
+        Me.GroupBox4.Controls.Add(Me.btnNopBai)
         Me.GroupBox4.Controls.Add(Me.Button20)
         Me.GroupBox4.Controls.Add(Me.Button15)
         Me.GroupBox4.Controls.Add(Me.Button10)
@@ -155,17 +157,17 @@ Partial Class FmTesting
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Câu hỏi"
         '
-        'Button21
+        'btnNopBai
         '
-        Me.Button21.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button21.ForeColor = System.Drawing.Color.Maroon
-        Me.Button21.Location = New System.Drawing.Point(89, 208)
-        Me.Button21.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(144, 46)
-        Me.Button21.TabIndex = 1
-        Me.Button21.Text = "Nộp Bài"
-        Me.Button21.UseVisualStyleBackColor = True
+        Me.btnNopBai.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNopBai.ForeColor = System.Drawing.Color.Maroon
+        Me.btnNopBai.Location = New System.Drawing.Point(89, 208)
+        Me.btnNopBai.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnNopBai.Name = "btnNopBai"
+        Me.btnNopBai.Size = New System.Drawing.Size(144, 46)
+        Me.btnNopBai.TabIndex = 1
+        Me.btnNopBai.Text = "Nộp Bài"
+        Me.btnNopBai.UseVisualStyleBackColor = True
         '
         'Button20
         '
@@ -384,8 +386,30 @@ Partial Class FmTesting
         Me.Panel2.Controls.Add(Me.Panel1)
         Me.Panel2.Location = New System.Drawing.Point(373, 235)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1455, 3000)
+        Me.Panel2.Size = New System.Drawing.Size(1455, 3200)
         Me.Panel2.TabIndex = 0
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(973, 44)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(115, 21)
+        Me.RadioButton1.TabIndex = 6
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "RadioButton1"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(1129, 44)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(115, 21)
+        Me.RadioButton2.TabIndex = 7
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "RadioButton2"
+        Me.RadioButton2.UseVisualStyleBackColor = True
         '
         'FmTesting
         '
@@ -395,6 +419,8 @@ Partial Class FmTesting
         Me.AutoSize = True
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1900, 981)
+        Me.Controls.Add(Me.RadioButton2)
+        Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -443,8 +469,10 @@ Partial Class FmTesting
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button21 As System.Windows.Forms.Button
+    Friend WithEvents btnNopBai As System.Windows.Forms.Button
     Friend WithEvents T_answerTableAdapter1 As WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
 End Class
