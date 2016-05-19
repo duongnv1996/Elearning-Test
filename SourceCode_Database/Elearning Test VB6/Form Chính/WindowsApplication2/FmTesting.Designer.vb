@@ -52,8 +52,6 @@ Partial Class FmTesting
         Me.T_answerTableAdapter1 = New WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -389,28 +387,6 @@ Partial Class FmTesting
         Me.Panel2.Size = New System.Drawing.Size(1455, 3200)
         Me.Panel2.TabIndex = 0
         '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(973, 44)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(115, 21)
-        Me.RadioButton1.TabIndex = 6
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(1129, 44)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(115, 21)
-        Me.RadioButton2.TabIndex = 7
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "RadioButton2"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
         'FmTesting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -418,9 +394,7 @@ Partial Class FmTesting
         Me.AutoScroll = True
         Me.AutoSize = True
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1900, 981)
-        Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.RadioButton1)
+        Me.ClientSize = New System.Drawing.Size(1348, 721)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -430,13 +404,10 @@ Partial Class FmTesting
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(1918, 1028)
-        Me.MinimumSize = New System.Drawing.Size(1918, 1028)
+        Me.MinimumSize = New System.Drawing.Size(1366, 768)
         Me.Name = "FmTesting"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Kiểm Tra"
-        Me.TopMost = True
         Me.GroupBox4.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -473,6 +444,4 @@ Partial Class FmTesting
     Friend WithEvents T_answerTableAdapter1 As WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
 End Class
