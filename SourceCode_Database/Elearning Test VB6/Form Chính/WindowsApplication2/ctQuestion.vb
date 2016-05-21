@@ -1,4 +1,6 @@
-﻿Public Class ctQuestion
+﻿Imports System.IO
+
+Public Class ctQuestion
     Private _item As New Item
     Public Property QuestionItem() As Item
 
@@ -16,7 +18,7 @@
 
         lbQuest.Text = _item.quest().contentQuest()
         Dim sizeOfAns As Integer = _item.ans.Count()
-        Dim isFail As Boolean = true
+        Dim isFail As Boolean = True
         Select Case sizeOfAns
             Case 1
                 rbA.Text = _item.ans.Item(0).contentAns()
@@ -53,7 +55,7 @@
                 If (_item.ans.Item(2).isTrue()) Then
                     isFail = False
                 End If
-              
+
             Case 4
                 rbA.Text = _item.ans.Item(0).contentAns()
                 rbB.Text = _item.ans.Item(1).contentAns()
@@ -77,9 +79,28 @@
         'rbB.Text = _item.ans.Item(1).contentAns()
         'rbC.Text = _item.ans.Item(2).contentAns()
         'rbD.Text = _item.ans.Item(3).contentAns()
-        'If (isFail) Then
-        '    MsgBox("ID question false is " & _item.quest().idQuest())
-        'End If
+        If (isFail) Then
+            ' MsgBox("ID question false is " & _item.quest().idQuest().ToString)
+            writeToFile("log.txt", _item.quest().idSubject().ToString & " ID question false is " & _item.quest().idQuest().ToString & "-" & _item.quest().contentQuest().ToString)
+        End If
 
     End Sub
+
+
+    Private Function writeToFile(ByVal name As String, ByVal msg As String) As Boolean
+        Dim writeStream As StreamWriter = New StreamWriter(name, True)
+        Try
+            writeStream.WriteLine(msg)
+
+        Catch ex As Exception
+            Return False
+        Finally
+            writeStream.Close()
+        End Try
+
+       
+        Return True
+
+
+    End Function
 End Class

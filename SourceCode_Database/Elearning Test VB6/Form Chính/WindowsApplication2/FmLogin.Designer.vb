@@ -24,10 +24,10 @@ Partial Class FmLogin
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btndn = New System.Windows.Forms.Button()
+        Me.txtuser = New System.Windows.Forms.TextBox()
+        Me.txtpass = New System.Windows.Forms.TextBox()
+        Me.btncan = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -56,46 +56,47 @@ Partial Class FmLogin
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Mật Khẩu :"
         '
-        'Button1
+        'btndn
         '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Maroon
-        Me.Button1.Location = New System.Drawing.Point(624, 431)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(179, 64)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Đăng Nhập"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btndn.BackColor = System.Drawing.Color.Transparent
+        Me.btndn.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndn.ForeColor = System.Drawing.Color.Maroon
+        Me.btndn.Location = New System.Drawing.Point(624, 431)
+        Me.btndn.Margin = New System.Windows.Forms.Padding(4)
+        Me.btndn.Name = "btndn"
+        Me.btndn.Size = New System.Drawing.Size(179, 64)
+        Me.btndn.TabIndex = 4
+        Me.btndn.Text = "Đăng Nhập"
+        Me.btndn.UseVisualStyleBackColor = False
         '
-        'TextBox1
+        'txtuser
         '
-        Me.TextBox1.Location = New System.Drawing.Point(624, 282)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(483, 22)
-        Me.TextBox1.TabIndex = 5
+        Me.txtuser.Location = New System.Drawing.Point(624, 282)
+        Me.txtuser.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtuser.Name = "txtuser"
+        Me.txtuser.Size = New System.Drawing.Size(483, 22)
+        Me.txtuser.TabIndex = 5
         '
-        'TextBox2
+        'txtpass
         '
-        Me.TextBox2.Location = New System.Drawing.Point(624, 340)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(483, 22)
-        Me.TextBox2.TabIndex = 6
+        Me.txtpass.Location = New System.Drawing.Point(624, 340)
+        Me.txtpass.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtpass.Name = "txtpass"
+        Me.txtpass.Size = New System.Drawing.Size(483, 22)
+        Me.txtpass.TabIndex = 6
+        Me.txtpass.UseSystemPasswordChar = True
         '
-        'Button2
+        'btncan
         '
-        Me.Button2.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Maroon
-        Me.Button2.Location = New System.Drawing.Point(915, 431)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(193, 63)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Thoát"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btncan.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncan.ForeColor = System.Drawing.Color.Maroon
+        Me.btncan.Location = New System.Drawing.Point(915, 431)
+        Me.btncan.Margin = New System.Windows.Forms.Padding(4)
+        Me.btncan.Name = "btncan"
+        Me.btncan.Size = New System.Drawing.Size(193, 63)
+        Me.btncan.TabIndex = 7
+        Me.btncan.Text = "Thoát"
+        Me.btncan.UseVisualStyleBackColor = True
         '
         'FmLogin
         '
@@ -104,10 +105,10 @@ Partial Class FmLogin
         Me.BackgroundImage = Global.WindowsApplication2.My.Resources.Resources.cfgc_jpg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1312, 628)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btncan)
+        Me.Controls.Add(Me.txtpass)
+        Me.Controls.Add(Me.txtuser)
+        Me.Controls.Add(Me.btndn)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -119,8 +120,8 @@ Partial Class FmLogin
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btndn As System.Windows.Forms.Button
+    Friend WithEvents txtuser As System.Windows.Forms.TextBox
+    Friend WithEvents txtpass As System.Windows.Forms.TextBox
+    Friend WithEvents btncan As System.Windows.Forms.Button
 End Class

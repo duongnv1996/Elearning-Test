@@ -430,7 +430,6 @@ Partial Class fmAdd
         '
         'cmdUpdateDB
         '
-        Me.cmdUpdateDB.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdUpdateDB.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.cmdUpdateDB.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdUpdateDB.Location = New System.Drawing.Point(512, 423)

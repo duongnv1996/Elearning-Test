@@ -398,6 +398,11 @@ Public Class fmAdd
     End Sub
 
     Private Sub T_questionDataGridView_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles T_questionDataGridView.UserDeletedRow
+
         cmdUpdateDB.Visible = True
     End Sub
+    
+    Private isFirst As Boolean
+
+
 End Class
