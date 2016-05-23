@@ -70,6 +70,12 @@ Partial Class fmAdd
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.DirectorySearcher1 = New System.DirectoryServices.DirectorySearcher()
+        Me.DirectorySearcher2 = New System.DirectoryServices.DirectorySearcher()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.cmdFind = New System.Windows.Forms.Button()
+        Me.cbbType = New System.Windows.Forms.ComboBox()
         CType(Me.T_questionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.T_questionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.db_question, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -490,9 +496,9 @@ Partial Class fmAdd
         Me.Label9.ForeColor = System.Drawing.Color.Blue
         Me.Label9.Location = New System.Drawing.Point(18, 712)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(73, 17)
+        Me.Label9.Size = New System.Drawing.Size(77, 17)
         Me.Label9.TabIndex = 23
-        Me.Label9.Text = "* : Câu hỏi"
+        Me.Label9.Text = "A : Câu hỏi"
         '
         'Label10
         '
@@ -503,7 +509,7 @@ Partial Class fmAdd
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(107, 17)
         Me.Label10.TabIndex = 24
-        Me.Label10.Text = "* : Đáp án đúng"
+        Me.Label10.Text = "A: Đáp án đúng"
         '
         'Label11
         '
@@ -514,13 +520,71 @@ Partial Class fmAdd
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(71, 17)
         Me.Label11.TabIndex = 25
-        Me.Label11.Text = "* : Đáp án"
+        Me.Label11.Text = "A: Đáp án"
+        '
+        'DirectorySearcher1
+        '
+        Me.DirectorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01")
+        Me.DirectorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01")
+        Me.DirectorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01")
+        '
+        'DirectorySearcher2
+        '
+        Me.DirectorySearcher2.ClientTimeout = System.TimeSpan.Parse("-00:00:01")
+        Me.DirectorySearcher2.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01")
+        Me.DirectorySearcher2.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01")
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Location = New System.Drawing.Point(671, 53)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(433, 22)
+        Me.txtSearch.TabIndex = 26
+        '
+        'Label12
+        '
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label12.Location = New System.Drawing.Point(540, 53)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(105, 16)
+        Me.Label12.TabIndex = 27
+        Me.Label12.Text = "Tìm kiếm dữ liệu"
+        '
+        'cmdFind
+        '
+        Me.cmdFind.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdFind.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cmdFind.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.cmdFind.Location = New System.Drawing.Point(1263, 50)
+        Me.cmdFind.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdFind.Name = "cmdFind"
+        Me.cmdFind.Size = New System.Drawing.Size(100, 28)
+        Me.cmdFind.TabIndex = 29
+        Me.cmdFind.Text = "Lọc"
+        Me.cmdFind.UseVisualStyleBackColor = True
+        '
+        'cbbType
+        '
+        Me.cbbType.FormattingEnabled = True
+        Me.cbbType.Items.AddRange(New Object() {"Môn học", "Câu hỏi", "Câu trả lời"})
+        Me.cbbType.Location = New System.Drawing.Point(1124, 50)
+        Me.cbbType.Name = "cbbType"
+        Me.cbbType.Size = New System.Drawing.Size(100, 24)
+        Me.cbbType.TabIndex = 31
+        Me.cbbType.Text = "Môn học"
         '
         'fmAdd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1379, 738)
+        Me.Controls.Add(Me.cbbType)
+        Me.Controls.Add(Me.cmdFind)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
@@ -610,5 +674,11 @@ Partial Class fmAdd
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents DirectorySearcher1 As System.DirectoryServices.DirectorySearcher
+    Friend WithEvents DirectorySearcher2 As System.DirectoryServices.DirectorySearcher
+    Friend WithEvents txtSearch As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents cmdFind As System.Windows.Forms.Button
+    Friend WithEvents cbbType As System.Windows.Forms.ComboBox
 
 End Class

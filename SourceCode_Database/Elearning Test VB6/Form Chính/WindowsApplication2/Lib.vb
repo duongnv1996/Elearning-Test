@@ -22,7 +22,7 @@ Public Class fmAdd
     Private idAnsFocus As String
     Private mSubject As String
     Private con As New SqlConnection("Data Source=MAYTINH-JRUTQDS;Initial Catalog=db_question;Integrated Security=True")
-
+    Private dataCollection As New AutoCompleteStringCollection
     Dim ds As New DataSet
     Dim sqlQuest As String = "SELECT * FROM t_question"
     Dim sqlSub As String = "SELECT * FROM t_subject"
@@ -43,23 +43,11 @@ Public Class fmAdd
         adapterAns.Fill(ds, "t_answer")
         adapterSub.Fill(ds, "t_subject")
         con.Close()
-        '  loadToDGV()
-
-        'Try
-        '    con.Open()
-        '    Dim deleteSub As New SqlCommand("Delete  FROM  t_subject", con)
-        '    Dim deleteAns As New SqlCommand("Delete  FROM  t_answer", con)
-        '    Dim deleteQuest As New SqlCommand("Delete FROM t_quest", con)
-        '    deleteSub.ExecuteNonQuery()
-        '    deleteQuest.ExecuteNonQuery()
-        '    deleteAns.ExecuteNonQuery()
-        '    'MsgBox("Mo thanh cong DB")
-
-        '    con.Close()
-        'Catch ex As Exception
-        '    MsgBox("Loi roi " & ex.Message.ToString)
-
-        'End Try
+        cbbType.SelectedIndex = 0
+        setDataForDataCollection(db_question.t_subject)
+        txtSearch.AutoCompleteMode = AutoCompleteMode.Suggest
+        txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource
+        txtSearch.AutoCompleteCustomSource = dataCollection
 
         'TODO: This line of code loads data into the 'db_question.t_subject' table. You can move, or remove it, as needed.
         Me.T_subjectTableAdapter.Fill(Me.db_question.t_subject)
@@ -409,8 +397,6 @@ Public Class fmAdd
 
         If (e.RowIndex < count - 1) Then
             idSubjectFocus = T_subjectDataGridView.Rows(e.RowIndex).Cells(0).Value
-
-
             dv = New DataView(db_question.t_question, "id_subject = '" & idSubjectFocus & "'", "id_quest Desc", DataViewRowState.CurrentRows)
             T_questionDataGridView.DataSource = dv
             'filter Ans
@@ -421,8 +407,7 @@ Public Class fmAdd
             'T_answerDataGridView.DataSource = dvAns
 
             ' filter Subject
-            Dim dvSub As New DataView(db_question.t_subject, "id_subject = '" & idSubjectFocus & "'", "id_subject Desc", DataViewRowState.CurrentRows)
-            T_subjectDataGridView.DataSource = dvSub
+            
             cmdBack.Visible = True
         End If
 
@@ -440,7 +425,68 @@ Public Class fmAdd
         loadToDGV()
     End Sub
 
- 
+    Private Function filterByContent(ByVal content As String, ByVal table As DataTable, ByVal filter As String) As DataView
+        Dim dvAnss = New DataView(table, "" & filter & " = '" & content & "'", "", DataViewRowState.CurrentRows)
+        Return dvAnss
+
+    End Function
+    Private Sub filterSubject(ByVal dataView As DataView)
+        Try
+            If (dataView.Count > 0) Then
+
+
+                T_subjectDataGridView.DataSource = dataView
+                Dim id As String = dataView.Item(0).Item(0).ToString()
+                'filter question
+                Dim dv As New DataView(db_question.t_question, "id_subject = '" & id & "'", "id_quest Desc", DataViewRowState.CurrentRows)
+                T_questionDataGridView.DataSource = dv
+            Else
+                MsgBox("Không tìm thấy thông tin vừa nhập")
+            End If
+        Catch ex As Exception
+            MsgBox("Không tìm thấy thông tin vừa nhập")
+        End Try
+    End Sub
+    Private Sub filterQuestion(ByVal dataView As DataView)
+        Try
+            If (dataView.Count > 0) Then
+                T_questionDataGridView.DataSource = dataView
+                Dim id As String = dataView.Item(0).Item(0).ToString()
+                'filter answer
+                Dim dv As New DataView(db_question.t_answer, "id_quest = '" & id & "'", "id_ans Desc", DataViewRowState.CurrentRows)
+                T_answerDataGridView.DataSource = dv
+                'filter subject
+                id = dataView.Item(0).Item(2).ToString()
+                Dim dvS As New DataView(db_question.t_subject, "id_subject = '" & id & "'", "", DataViewRowState.CurrentRows)
+                T_subjectDataGridView.DataSource = dvS
+            Else
+                MsgBox("Không tìm thấy thông tin vừa nhập")
+            End If
+        Catch ex As Exception
+            MsgBox("Không tìm thấy thông tin vừa nhập")
+        End Try
+       
+    End Sub
+    Private Sub filterAnswer(ByVal dataView As DataView)
+        Try
+            If (dataView.Count > 0) Then
+                T_answerDataGridView.DataSource = dataView
+                Dim id As String = dataView.Item(0).Item(2).ToString()
+                'filter question
+                Dim dv As New DataView(db_question.t_question, "id_quest = '" & id & "'", "id_quest Desc", DataViewRowState.CurrentRows)
+                T_questionDataGridView.DataSource = dv
+                'Filter subject
+                id = dv.Item(0).Item(2).ToString()
+                Dim dvS As New DataView(db_question.t_subject, "id_subject = '" & id & "'", "", DataViewRowState.CurrentRows)
+                T_subjectDataGridView.DataSource = dvS
+            Else
+                MsgBox("Không tìm thấy thông tin vừa nhập")
+            End If
+
+        Catch ex As Exception
+            MsgBox("Không tìm thấy thông tin vừa nhập")
+        End Try
+    End Sub
 
     Private Sub T_questionDataGridView_ContextMenuStripChanged(sender As Object, e As EventArgs) Handles T_questionDataGridView.ContextMenuStripChanged
 
@@ -506,4 +552,49 @@ Public Class fmAdd
         Next
     End Sub
 
+    Private Sub txtType_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub cmdFind_Click(sender As Object, e As EventArgs) Handles cmdFind.Click
+        Dim data As String
+        data = txtSearch.Text
+        Dim type As String
+        type = cbbType.SelectedItem
+        If (Equals("Môn học", type)) Then
+            filterSubject(filterByContent(data, db_question.t_subject, "content_subject"))
+        ElseIf (Equals("Câu hỏi", type)) Then
+            filterQuestion(filterByContent(data, db_question.t_question, "content_quest"))
+        Else
+            filterAnswer(filterByContent(data, db_question.t_answer, "content_ans"))
+
+
+        End If
+
+
+    End Sub
+
+
+    Private Sub setDataForDataCollection(ByVal table As DataTable)
+
+        For Each row As DataRow In table.Rows
+            dataCollection.Add(row(1).ToString())
+        Next
+
+    End Sub
+
+   
+
+    Private Sub cbbType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbbType.SelectedIndexChanged
+        'Dim Type As String = cbbType.SelectedItem
+        'If (Equals("Môn học", Type)) Then
+        '    setDataForDataCollection(db_question.t_subject)
+        'ElseIf (Equals("Câu hỏi", Type)) Then
+        '    setDataForDataCollection(db_question.t_question)
+        'Else
+        '    setDataForDataCollection(db_question.t_answer)
+
+
+        'End If
+    End Sub
 End Class

@@ -17,6 +17,9 @@ Public Class FmLogin
 
                     Else
                         MessageBox.Show("Bạn đã đăng nhập thành công")
+                        Dim txt As New FmSubject
+                        txt.user = txtuser.Text
+                        txt.Show()
                         FmSubject.Show()
                         Me.Hide()
                     End If
@@ -47,6 +50,10 @@ Public Class FmLogin
         If e.KeyValue = Keys.Enter Then
             btndn_Click(sender, e)
         End If
+    End Sub
+
+    Private Sub FmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
 'KẾT NỐI
