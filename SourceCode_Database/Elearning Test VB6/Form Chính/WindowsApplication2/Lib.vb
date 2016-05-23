@@ -17,13 +17,33 @@ Public Class fmAdd
     Private cQuest As String
     Private cAns As String
     Private cTrueAns As String
+    Private idSubjectFocus As String
+    Private idQuestFocus As String
+    Private idAnsFocus As String
     Private mSubject As String
     Private con As New SqlConnection("Data Source=MAYTINH-JRUTQDS;Initial Catalog=db_question;Integrated Security=True")
 
-
-
-
+    Dim ds As New DataSet
+    Dim sqlQuest As String = "SELECT * FROM t_question"
+    Dim sqlSub As String = "SELECT * FROM t_subject"
+    Dim sqlAns As String = "SELECT * FROM t_answer"
+    Dim adapterQuest As New SqlDataAdapter(sqlQuest, con)
+    Dim adapterAns As New SqlDataAdapter(sqlAns, con)
+    Dim adapterSub As New SqlDataAdapter(sqlSub, con)
+    Private Sub loadToDGV()
+        T_questionDataGridView.DataSource = db_question.t_question
+        T_answerDataGridView.DataSource = db_question.t_answer
+        T_subjectDataGridView.DataSource = db_question.t_subject
+    End Sub
     Private Sub fmAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Show()
+        txtMonHoc.Focus()
+        con.Open()
+        adapterQuest.Fill(ds, "t_question")
+        adapterAns.Fill(ds, "t_answer")
+        adapterSub.Fill(ds, "t_subject")
+        con.Close()
+        '  loadToDGV()
 
         'Try
         '    con.Open()
@@ -349,30 +369,20 @@ Public Class fmAdd
 
     End Sub
     
-    Private Sub cmdUndo_Click(sender As Object, e As EventArgs) Handles cmdUndo.Click
+    Private Sub cmdUndo_Click(sender As Object, e As EventArgs) Handles cmdBack.Click
 
-
-        'Select focusIqn
-        '    Case gvAnswer
-
-        '        'Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-
-
-
-
-
-
-
-
-
-        '    Case gvSubject
-
-        '    Case gvQuestion
-
-        'End Select
+        loadToDGV()
 
 
     End Sub
+
+    Private Sub T_questionDataGridView_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles T_questionDataGridView.CellBeginEdit
+
+
+    End Sub
+
+ 
+
 
     Private Sub T_questionDataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.CellValueChanged
         cmdUpdateDB.Visible = True
@@ -392,17 +402,108 @@ Public Class fmAdd
     Private Sub T_answerDataGridView_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles T_answerDataGridView.UserDeletedRow
         cmdUpdateDB.Visible = True
     End Sub
+    Dim dv As DataView
+    Private Sub T_subjectDataGridView_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles T_subjectDataGridView.RowHeaderMouseClick
+        Dim count As Long = T_subjectDataGridView.RowCount
+
+
+        If (e.RowIndex < count - 1) Then
+            idSubjectFocus = T_subjectDataGridView.Rows(e.RowIndex).Cells(0).Value
+
+
+            dv = New DataView(db_question.t_question, "id_subject = '" & idSubjectFocus & "'", "id_quest Desc", DataViewRowState.CurrentRows)
+            T_questionDataGridView.DataSource = dv
+            'filter Ans
+            'idQuestFocus = T_questionDataGridView.Rows(0).Cells(0).Value
+
+            'Dim dvAns As DataView
+            'dvAns = New DataView(db_question.t_answer, "id_quest = '" & idQuestFocus & "'", "id_ans Desc", DataViewRowState.CurrentRows)
+            'T_answerDataGridView.DataSource = dvAns
+
+            ' filter Subject
+            Dim dvSub As New DataView(db_question.t_subject, "id_subject = '" & idSubjectFocus & "'", "id_subject Desc", DataViewRowState.CurrentRows)
+            T_subjectDataGridView.DataSource = dvSub
+            cmdBack.Visible = True
+        End If
+
+    End Sub
 
     Private Sub T_subjectDataGridView_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles T_subjectDataGridView.UserDeletingRow
         cmdUpdateDB.Visible = True
+        For Each Item As DataRowView In dv
+            Dim id As String = Item(0).ToString()
+            Dim dvAnss = New DataView(db_question.t_answer, "id_quest = '" & id & "'", "id_ans Desc", DataViewRowState.CurrentRows)
+            deleteAns(dvAnss)
+            Item.Delete()
+
+        Next
+        loadToDGV()
     End Sub
 
-    Private Sub T_questionDataGridView_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles T_questionDataGridView.UserDeletedRow
+ 
 
+    Private Sub T_questionDataGridView_ContextMenuStripChanged(sender As Object, e As EventArgs) Handles T_questionDataGridView.ContextMenuStripChanged
+
+    End Sub
+
+    Private Sub T_questionDataGridView_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.RowEnter
+      
+
+    End Sub
+    Private listSelect As List(Of Long)
+    Dim dvAns As DataView
+
+    Private Sub T_questionDataGridView_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles T_questionDataGridView.RowHeaderMouseClick
+        Dim count As Long = T_questionDataGridView.RowCount
+
+
+        If (e.RowIndex < count - 1) Then
+            idQuestFocus = T_questionDataGridView.Rows(e.RowIndex).Cells(0).Value
+            Dim subject As String = T_questionDataGridView.Rows(e.RowIndex).Cells(2).Value.ToString()
+            Dim dvQuest As DataView
+            dvQuest = New DataView(db_question.t_question, "id_quest = '" & idQuestFocus & "'", "id_quest Desc", DataViewRowState.CurrentRows)
+            T_questionDataGridView.DataSource = dvQuest
+            'filter Ans
+
+            dvAns = New DataView(db_question.t_answer, "id_quest = '" & idQuestFocus & "'", "id_ans Desc", DataViewRowState.CurrentRows)
+
+            T_answerDataGridView.DataSource = dvAns
+
+            ' filter Subject
+            Dim dvSub As New DataView(db_question.t_subject, "id_subject = '" & subject & "'", "id_subject Desc", DataViewRowState.CurrentRows)
+            T_subjectDataGridView.DataSource = dvSub
+
+
+            cmdBack.Visible = True
+        End If
+     
+    End Sub
+
+    Private Sub T_questionDataGridView_RowLeave(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.RowLeave
+       
+    End Sub
+
+    Private Sub T_questionDataGridView_RowValidating(sender As Object, e As DataGridViewCellCancelEventArgs) Handles T_questionDataGridView.RowValidating
+        '  MsgBox("ID vua xoa la : " & T_questionDataGridView.RowCount)
+    End Sub
+
+
+
+    
+
+
+    Private Sub T_questionDataGridView_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles T_questionDataGridView.UserDeletedRow
+        'MsgBox("ID vua xoa la : " & idQuestFocus)
+        deleteAns(dvAns)
+        loadToDGV()
         cmdUpdateDB.Visible = True
     End Sub
     
     Private isFirst As Boolean
-
+    Private Sub deleteAns(ByVal dvAns As DataView)
+        For Each Item As DataRowView In dvAns
+            Item.Delete()
+        Next
+    End Sub
 
 End Class

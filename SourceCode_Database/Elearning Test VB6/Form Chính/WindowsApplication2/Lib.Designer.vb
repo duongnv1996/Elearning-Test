@@ -66,7 +66,10 @@ Partial Class fmAdd
         Me.TableAdapterManager = New WindowsApplication2.db_questionTableAdapters.TableAdapterManager()
         Me.T_answerTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter()
         Me.T_subjectTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_subjectTableAdapter()
-        Me.cmdUndo = New System.Windows.Forms.Button()
+        Me.cmdBack = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.T_questionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.T_questionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.db_question, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -468,24 +471,60 @@ Partial Class fmAdd
         '
         Me.T_subjectTableAdapter.ClearBeforeFill = True
         '
-        'cmdUndo
+        'cmdBack
         '
-        Me.cmdUndo.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
-        Me.cmdUndo.Location = New System.Drawing.Point(512, 504)
-        Me.cmdUndo.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmdUndo.Name = "cmdUndo"
-        Me.cmdUndo.Size = New System.Drawing.Size(123, 73)
-        Me.cmdUndo.TabIndex = 22
-        Me.cmdUndo.Text = "Trở lại"
-        Me.cmdUndo.UseVisualStyleBackColor = True
-        Me.cmdUndo.Visible = False
+        Me.cmdBack.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.cmdBack.Location = New System.Drawing.Point(512, 504)
+        Me.cmdBack.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdBack.Name = "cmdBack"
+        Me.cmdBack.Size = New System.Drawing.Size(123, 73)
+        Me.cmdBack.TabIndex = 22
+        Me.cmdBack.Text = "Trở lại"
+        Me.cmdBack.UseVisualStyleBackColor = True
+        Me.cmdBack.Visible = False
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = True
+        Me.Label9.ForeColor = System.Drawing.Color.Blue
+        Me.Label9.Location = New System.Drawing.Point(18, 712)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(73, 17)
+        Me.Label9.TabIndex = 23
+        Me.Label9.Text = "* : Câu hỏi"
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label10.AutoSize = True
+        Me.Label10.ForeColor = System.Drawing.Color.Red
+        Me.Label10.Location = New System.Drawing.Point(394, 712)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(107, 17)
+        Me.Label10.TabIndex = 24
+        Me.Label10.Text = "* : Đáp án đúng"
+        '
+        'Label11
+        '
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label11.AutoSize = True
+        Me.Label11.ForeColor = System.Drawing.Color.Black
+        Me.Label11.Location = New System.Drawing.Point(209, 712)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(71, 17)
+        Me.Label11.TabIndex = 25
+        Me.Label11.Text = "* : Đáp án"
         '
         'fmAdd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1379, 738)
-        Me.Controls.Add(Me.cmdUndo)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.cmdBack)
         Me.Controls.Add(Me.cmdUpdateDB)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtIDSub)
@@ -562,11 +601,14 @@ Partial Class fmAdd
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cmdBack As System.Windows.Forms.Button
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cmdUndo As System.Windows.Forms.Button
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
 
 End Class
