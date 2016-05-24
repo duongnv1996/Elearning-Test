@@ -2,12 +2,19 @@
 
 Public Class FmTesting
     Private heightPanel As Integer = 200
-    Private subject As String = "QTDN"
+    Private subject As String
     Private numberOfQuest As Integer = 20
     Private marginSize As Integer = 5
     Private con As New SqlConnection("Data Source=MAYTINH-JRUTQDS;Initial Catalog=db_question;Integrated Security=True;MultipleActiveResultSets=True")
     Private listQuest As New List(Of ctQuestion)
-
+    Public Property subjectCode() As String
+        Get
+            Return Subject
+        End Get
+        Set(value As String)
+            subject = value
+        End Set
+    End Property
     Private Function getData()
         Try
             con.Open()

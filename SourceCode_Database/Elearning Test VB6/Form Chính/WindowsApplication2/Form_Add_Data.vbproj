@@ -169,6 +169,7 @@
     <Compile Include="ctQuestion.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="User.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Admin.resx">

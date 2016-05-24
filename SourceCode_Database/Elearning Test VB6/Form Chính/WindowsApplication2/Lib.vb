@@ -44,10 +44,7 @@ Public Class fmAdd
         adapterSub.Fill(ds, "t_subject")
         con.Close()
         cbbType.SelectedIndex = 0
-        setDataForDataCollection(db_question.t_subject)
-        setDataForDataCollection(db_question.t_answer)
-        setDataForDataCollection(db_question.t_question)
-        txtSearch.Visible = True
+    
 
         txtSearch.AutoCompleteMode = AutoCompleteMode.Suggest
         txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -59,7 +56,10 @@ Public Class fmAdd
         Me.T_answerTableAdapter.Fill(Me.db_question.t_answer)
         'TODO: This line of code loads data into the 'db_question.t_question' table. You can move, or remove it, as needed.
         Me.T_questionTableAdapter.Fill(Me.db_question.t_question)
-
+        setDataForDataCollection(db_question.t_subject)
+        setDataForDataCollection(db_question.t_answer)
+        setDataForDataCollection(db_question.t_question)
+        txtSearch.Visible = True
         lstQuestion.HorizontalScrollbar = True
         Me.AutoSize = True
 
