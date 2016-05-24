@@ -45,6 +45,10 @@ Public Class fmAdd
         con.Close()
         cbbType.SelectedIndex = 0
         setDataForDataCollection(db_question.t_subject)
+        setDataForDataCollection(db_question.t_answer)
+        setDataForDataCollection(db_question.t_question)
+        txtSearch.Visible = True
+
         txtSearch.AutoCompleteMode = AutoCompleteMode.Suggest
         txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource
         txtSearch.AutoCompleteCustomSource = dataCollection
@@ -570,6 +574,7 @@ Public Class fmAdd
 
 
         End If
+        cmdBack.Visible = True
 
 
     End Sub

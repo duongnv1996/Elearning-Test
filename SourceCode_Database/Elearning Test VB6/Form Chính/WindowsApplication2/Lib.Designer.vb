@@ -540,6 +540,7 @@ Partial Class fmAdd
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(433, 22)
         Me.txtSearch.TabIndex = 26
+        Me.txtSearch.Visible = False
         '
         'Label12
         '
