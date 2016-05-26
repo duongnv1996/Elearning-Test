@@ -11,3 +11,9 @@
     End Class
 
 End Class
+
+Namespace db_questionTableAdapters
+    
+    Partial Public Class t_subjectTableAdapter
+    End Class
+End Namespace
