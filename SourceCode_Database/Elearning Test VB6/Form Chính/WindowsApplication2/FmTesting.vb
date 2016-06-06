@@ -2,11 +2,31 @@
 
 Public Class FmTesting
     Private heightPanel As Integer = 200
-    Private subject As String
+    Private subject As String = "KTHĐC"
     Private numberOfQuest As Integer = 20
     Private marginSize As Integer = 5
     Private con As New SqlConnection("Data Source=MAYTINH-JRUTQDS;Initial Catalog=db_question;Integrated Security=True;MultipleActiveResultSets=True")
     Private listQuest As New List(Of ctQuestion)
+    Private _user As New User
+    Private _subjectItem As New SubjectItem
+    Private timer As Long
+    Public Property subjectItem() As SubjectItem
+        Get
+            Return _subjectItem
+        End Get
+        Set(value As SubjectItem)
+            _subjectItem = value
+        End Set
+    End Property
+    
+    Public Property user() As User
+        Get
+            Return _user
+        End Get
+        Set(value As User)
+            _user = value
+        End Set
+    End Property
     Public Property subjectCode() As String
         Get
             Return Subject
@@ -55,8 +75,8 @@ Public Class FmTesting
                     Dim ctQuestItem As New ctQuestion
                     ctQuestItem.QuestionItem().quest = q
 
-                    'Not random yet
-                    Dim queryAns As String = "select  * from t_answer where id_quest=@idquest  "
+                    'Random answer by ORDER BY NEWID()
+                    Dim queryAns As String = "select  * from t_answer where id_quest=@idquest"
                     Dim sqlAns As New SqlCommand(queryAns, con)
                     sqlAns.Parameters.AddWithValue("@idquest", q.idQuest)
                     Dim readerAns As SqlDataReader = sqlAns.ExecuteReader()
@@ -124,20 +144,32 @@ Public Class FmTesting
             i = i + 1
 
         Next
+        If IsNothing(user) <> True Then
+            lbHoten.Text = _user.name
+            lbClass.Text = _user.grade
+            lbMsv.Text = _user.msv
+        End If
+        Dim timeStart as String = DateTime.Now.ToLongTimeString
+        lbTimeStart.Text = timeStart
 
-      
+        If IsNothing(subjectItem) <> True Then
+            gbSubject.Text = _subjectItem.name
+        Else
+            gbSubject.Text = "Câu hỏi"
+        End If
+        ' TIME
+        ' Timer1.Start()
+        timer = 30
+        lbTimeEnd.Text = DateTime.Now.AddHours(1).ToLocalTime.ToShortTimeString
     End Sub
 
     Private Sub VScrollBar1_Scroll(sender As Object, e As ScrollEventArgs)
-        'Me.Panel2.Top = -Me.VScrollBar1.Value()
-        'Me.VScrollBar1.Maximum = Me.Panel2.Size.Height - Me.Panel1.Size.Height
+       
     End Sub
 
 
     Private Sub btnNopBai_Click(sender As Object, e As EventArgs) Handles btnNopBai.Click
         MsgBox("Mark = " & getMark())
-        
-
     End Sub
 
 
@@ -171,4 +203,26 @@ Public Class FmTesting
 
         Return mark
     End Function
+
+    Private Sub VScrollBar2_Scroll(sender As Object, e As ScrollEventArgs) Handles VScrollBar2.Scroll
+        Me.Panel2.Top = -Me.VScrollBar2.Value()
+        Me.VScrollBar2.Maximum = Me.Panel2.Size.Height - Me.Panel1.Size.Height
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles lbTimeEnd.Click
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If (timer > 0) Then
+            timer = timer - 1
+
+            'lbTimeEnd.Text = timer & "sec"
+        Else
+            Timer1.Stop()
+            ' MsgBox("Time up")
+
+        End If
+    End Sub
+
 End Class

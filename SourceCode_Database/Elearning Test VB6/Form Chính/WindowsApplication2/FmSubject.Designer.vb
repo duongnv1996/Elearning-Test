@@ -37,8 +37,8 @@ Partial Class FmSubject
         Me.lp = New System.Windows.Forms.Label()
         Me.ten = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.SuspendLayout()
         '
         'Label1
@@ -63,7 +63,7 @@ Partial Class FmSubject
         Me.Label2.Location = New System.Drawing.Point(490, 32)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(506, 38)
+        Me.Label2.Size = New System.Drawing.Size(490, 37)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Kiểm Tra Trắc Nghiệm Elearning"
         '
@@ -227,14 +227,6 @@ Partial Class FmSubject
         Me.ShapeContainer1.TabIndex = 9
         Me.ShapeContainer1.TabStop = False
         '
-        'LineShape1
-        '
-        Me.LineShape1.Name = "LineShape1"
-        Me.LineShape1.X1 = -10
-        Me.LineShape1.X2 = 1319
-        Me.LineShape1.Y1 = 163
-        Me.LineShape1.Y2 = 163
-        '
         'LineShape2
         '
         Me.LineShape2.Name = "LineShape2"
@@ -243,10 +235,17 @@ Partial Class FmSubject
         Me.LineShape2.Y1 = 164
         Me.LineShape2.Y2 = 612
         '
+        'LineShape1
+        '
+        Me.LineShape1.Name = "LineShape1"
+        Me.LineShape1.X1 = -10
+        Me.LineShape1.X2 = 1319
+        Me.LineShape1.Y1 = 163
+        Me.LineShape1.Y2 = 163
+        '
         'FmSubject
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1318, 633)
         Me.Controls.Add(Me.ten)

@@ -79,6 +79,10 @@ Public Class FmLogin
             Return False
         End Try
     End Function
+
+    Private Sub FmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
 
 

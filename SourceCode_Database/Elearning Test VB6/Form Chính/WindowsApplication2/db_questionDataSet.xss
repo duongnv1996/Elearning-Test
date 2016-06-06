@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:t_answer" ZOrder="9" X="381" Y="70" Height="181" Width="229" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
     <Shape ID="DesignTable:t_mark" ZOrder="8" X="680" Y="321" Height="158" Width="215" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="99" />
     <Shape ID="DesignTable:t_question" ZOrder="7" X="70" Y="70" Height="158" Width="241" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="99" />
-    <Shape ID="DesignTable:t_subject" ZOrder="6" X="381" Y="321" Height="135" Width="229" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
+    <Shape ID="DesignTable:t_subject" ZOrder="6" X="381" Y="321" Height="181" Width="229" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
     <Shape ID="DesignTable:t_user" ZOrder="5" X="965" Y="321" Height="181" Width="208" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
   </Shapes>
   <Connectors>

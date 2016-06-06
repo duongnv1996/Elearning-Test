@@ -41,7 +41,7 @@ Partial Class ctQuestion
         'rbA
         '
         Me.rbA.AutoSize = True
-        Me.rbA.Location = New System.Drawing.Point(49, 56)
+        Me.rbA.Location = New System.Drawing.Point(46, 68)
         Me.rbA.Name = "rbA"
         Me.rbA.Size = New System.Drawing.Size(115, 21)
         Me.rbA.TabIndex = 1
@@ -52,7 +52,7 @@ Partial Class ctQuestion
         'rbB
         '
         Me.rbB.AutoSize = True
-        Me.rbB.Location = New System.Drawing.Point(49, 94)
+        Me.rbB.Location = New System.Drawing.Point(46, 106)
         Me.rbB.Name = "rbB"
         Me.rbB.Size = New System.Drawing.Size(115, 21)
         Me.rbB.TabIndex = 2
@@ -63,7 +63,7 @@ Partial Class ctQuestion
         'rbC
         '
         Me.rbC.AutoSize = True
-        Me.rbC.Location = New System.Drawing.Point(49, 133)
+        Me.rbC.Location = New System.Drawing.Point(46, 145)
         Me.rbC.Name = "rbC"
         Me.rbC.Size = New System.Drawing.Size(115, 21)
         Me.rbC.TabIndex = 3
@@ -74,7 +74,7 @@ Partial Class ctQuestion
         'rbD
         '
         Me.rbD.AutoSize = True
-        Me.rbD.Location = New System.Drawing.Point(49, 169)
+        Me.rbD.Location = New System.Drawing.Point(46, 181)
         Me.rbD.Name = "rbD"
         Me.rbD.Size = New System.Drawing.Size(115, 21)
         Me.rbD.TabIndex = 4
