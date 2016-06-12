@@ -562,6 +562,7 @@
   <ItemGroup>
     <Content Include="Add Property-96.png" />
     <Content Include="EPU_Logo_Footer.png" />
+    <None Include="Resources\activity_login.png" />
     <None Include="Resources\it.jpg" />
     <None Include="Resources\cfgc.jpg.png" />
   </ItemGroup>

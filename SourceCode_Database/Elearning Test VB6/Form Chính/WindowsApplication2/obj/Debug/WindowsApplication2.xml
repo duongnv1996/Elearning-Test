@@ -131,6 +131,10 @@ TableAdapterManager is used to coordinate TableAdapters in the dataset to enable
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:WindowsApplication2.My.Resources.Resources.activity_login">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:WindowsApplication2.My.Resources.Resources.cfgc_jpg">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
