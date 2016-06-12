@@ -22,6 +22,7 @@ Partial Class FmSubject
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -39,6 +40,7 @@ Partial Class FmSubject
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -50,7 +52,7 @@ Partial Class FmSubject
         Me.Label1.Location = New System.Drawing.Point(1102, 9)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(197, 26)
+        Me.Label1.Size = New System.Drawing.Size(157, 22)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Đại Học Điện Lực"
         '
@@ -63,7 +65,7 @@ Partial Class FmSubject
         Me.Label2.Location = New System.Drawing.Point(490, 32)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(490, 37)
+        Me.Label2.Size = New System.Drawing.Size(406, 31)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Kiểm Tra Trắc Nghiệm Elearning"
         '
@@ -76,7 +78,7 @@ Partial Class FmSubject
         Me.Label3.Location = New System.Drawing.Point(13, 203)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(166, 22)
+        Me.Label3.Size = New System.Drawing.Size(125, 19)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Thời gian : 60 phút "
         '
@@ -89,7 +91,7 @@ Partial Class FmSubject
         Me.Label4.Location = New System.Drawing.Point(13, 246)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(139, 22)
+        Me.Label4.Size = New System.Drawing.Size(108, 19)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Câu hỏi : 20 câu"
         '
@@ -153,7 +155,7 @@ Partial Class FmSubject
         Me.Label5.ForeColor = System.Drawing.Color.Black
         Me.Label5.Location = New System.Drawing.Point(13, 98)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(51, 22)
+        Me.Label5.Size = New System.Drawing.Size(39, 19)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Tên :"
         '
@@ -165,7 +167,7 @@ Partial Class FmSubject
         Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.Location = New System.Drawing.Point(13, 120)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(53, 22)
+        Me.Label6.Size = New System.Drawing.Size(41, 19)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "Lớp :"
         '
@@ -177,7 +179,7 @@ Partial Class FmSubject
         Me.Label7.ForeColor = System.Drawing.Color.Black
         Me.Label7.Location = New System.Drawing.Point(13, 142)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(67, 22)
+        Me.Label7.Size = New System.Drawing.Size(51, 19)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "mã sv :"
         '
@@ -189,7 +191,7 @@ Partial Class FmSubject
         Me.msv.ForeColor = System.Drawing.Color.Black
         Me.msv.Location = New System.Drawing.Point(109, 142)
         Me.msv.Name = "msv"
-        Me.msv.Size = New System.Drawing.Size(65, 22)
+        Me.msv.Size = New System.Drawing.Size(51, 19)
         Me.msv.TabIndex = 8
         Me.msv.Text = "Label5"
         '
@@ -201,7 +203,7 @@ Partial Class FmSubject
         Me.lp.ForeColor = System.Drawing.Color.Black
         Me.lp.Location = New System.Drawing.Point(109, 120)
         Me.lp.Name = "lp"
-        Me.lp.Size = New System.Drawing.Size(65, 22)
+        Me.lp.Size = New System.Drawing.Size(51, 19)
         Me.lp.TabIndex = 8
         Me.lp.Text = "Label5"
         '
@@ -213,7 +215,7 @@ Partial Class FmSubject
         Me.ten.ForeColor = System.Drawing.Color.Black
         Me.ten.Location = New System.Drawing.Point(109, 98)
         Me.ten.Name = "ten"
-        Me.ten.Size = New System.Drawing.Size(65, 22)
+        Me.ten.Size = New System.Drawing.Size(51, 19)
         Me.ten.TabIndex = 8
         Me.ten.Text = "Label5"
         '
@@ -242,6 +244,9 @@ Partial Class FmSubject
         Me.LineShape1.X2 = 1319
         Me.LineShape1.Y1 = 163
         Me.LineShape1.Y2 = 163
+        '
+        'Timer1
+        '
         '
         'FmSubject
         '
@@ -289,4 +294,5 @@ Partial Class FmSubject
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents LineShape2 As Microsoft.VisualBasic.PowerPacks.LineShape
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

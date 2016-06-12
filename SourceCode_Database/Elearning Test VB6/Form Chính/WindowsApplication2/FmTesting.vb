@@ -35,6 +35,9 @@ Public Class FmTesting
             subject = value
         End Set
     End Property
+
+    Property Timer_Tick As FmSubject
+
     Private Function getData()
         Try
             con.Open()
@@ -64,7 +67,7 @@ Public Class FmTesting
 
 
                     End If
-                  
+
                     index = index + 1
                     listItemQ.Add(itemQ)
 
