@@ -386,11 +386,10 @@ Public Class fmAdd
 
         Try
             Me.TableAdapterManager.UpdateAll(ds)
-
             MsgBox("Lưu vào CSDL thành công", MsgBoxStyle.OkOnly, "Thông báo")
             cmdUpdateDB.Visible = False
         Catch ex As Exception
-            MsgBox("Không thể lưu vào CSDL vì ", MsgBoxStyle.OkOnly, "Thông báo")
+            MsgBox("Không thể lưu vào CSDL ", MsgBoxStyle.OkOnly, "Thông báo")
         End Try
 
 
@@ -457,7 +456,7 @@ Public Class fmAdd
                 deleteAns(dvAnss)
                 Item.Delete()
             Next
-            '   loadToDGV()
+            ' loadToDGV()
         Catch ex As Exception
 
             MessageBox.Show("Không thể xóa môn học vì dữ liệu điểm số của sinh viên đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)

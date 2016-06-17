@@ -13,7 +13,7 @@
     <Shape ID="DesignTable:t_user" ZOrder="8" X="1198" Y="103" Height="181" Width="208" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK_t_answer_t_question" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK_t_answer_t_question" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>597</X>
@@ -22,22 +22,6 @@
         <Point>
           <X>403</X>
           <Y>537</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:FK_t_mark_t_subject" ZOrder="3" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>726</X>
-          <Y>116</Y>
-        </Point>
-        <Point>
-          <X>726</X>
-          <Y>108</Y>
-        </Point>
-        <Point>
-          <X>881</X>
-          <Y>108</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -53,7 +37,23 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_t_question_t_subject" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK_t_mark_t_subject" ZOrder="2" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>726</X>
+          <Y>116</Y>
+        </Point>
+        <Point>
+          <X>726</X>
+          <Y>108</Y>
+        </Point>
+        <Point>
+          <X>881</X>
+          <Y>108</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:FK_t_question_t_subject" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>712</X>

@@ -186,7 +186,14 @@ Public Class fmstudentManager
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Me.TableAdapterManager.UpdateAll(ds)
-        MessageBox.Show("Lưu vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Try
+            con.Open()
+            Me.TableAdapterManager.UpdateAll(ds)
+            MessageBox.Show("Lưu vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show("Không thể lưu vào CSDL", "Không thành công", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+       
     End Sub
 End Class

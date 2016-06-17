@@ -37,9 +37,9 @@ Partial Public Class db_question
 
     Private relationFK_t_answer_t_question As Global.System.Data.DataRelation
 
-    Private relationFK_t_mark_t_subject As Global.System.Data.DataRelation
-
     Private relationFK_t_mark_t_user1 As Global.System.Data.DataRelation
+
+    Private relationFK_t_mark_t_subject As Global.System.Data.DataRelation
 
     Private relationFK_t_question_t_subject As Global.System.Data.DataRelation
 
@@ -299,8 +299,8 @@ Partial Public Class db_question
             End If
         End If
         Me.relationFK_t_answer_t_question = Me.Relations("FK_t_answer_t_question")
-        Me.relationFK_t_mark_t_subject = Me.Relations("FK_t_mark_t_subject")
         Me.relationFK_t_mark_t_user1 = Me.Relations("FK_t_mark_t_user1")
+        Me.relationFK_t_mark_t_subject = Me.Relations("FK_t_mark_t_subject")
         Me.relationFK_t_question_t_subject = Me.Relations("FK_t_question_t_subject")
     End Sub
 
@@ -324,10 +324,10 @@ Partial Public Class db_question
         MyBase.Tables.Add(Me.tablet_user)
         Me.relationFK_t_answer_t_question = New Global.System.Data.DataRelation("FK_t_answer_t_question", New Global.System.Data.DataColumn() {Me.tablet_question.id_questColumn}, New Global.System.Data.DataColumn() {Me.tablet_answer.id_questColumn}, False)
         Me.Relations.Add(Me.relationFK_t_answer_t_question)
-        Me.relationFK_t_mark_t_subject = New Global.System.Data.DataRelation("FK_t_mark_t_subject", New Global.System.Data.DataColumn() {Me.tablet_subject.id_subjectColumn}, New Global.System.Data.DataColumn() {Me.tablet_mark.id_subjectColumn}, False)
-        Me.Relations.Add(Me.relationFK_t_mark_t_subject)
         Me.relationFK_t_mark_t_user1 = New Global.System.Data.DataRelation("FK_t_mark_t_user1", New Global.System.Data.DataColumn() {Me.tablet_user.msvColumn}, New Global.System.Data.DataColumn() {Me.tablet_mark.msvColumn}, False)
         Me.Relations.Add(Me.relationFK_t_mark_t_user1)
+        Me.relationFK_t_mark_t_subject = New Global.System.Data.DataRelation("FK_t_mark_t_subject", New Global.System.Data.DataColumn() {Me.tablet_subject.id_subjectColumn}, New Global.System.Data.DataColumn() {Me.tablet_mark.id_subjectColumn}, False)
+        Me.Relations.Add(Me.relationFK_t_mark_t_subject)
         Me.relationFK_t_question_t_subject = New Global.System.Data.DataRelation("FK_t_question_t_subject", New Global.System.Data.DataColumn() {Me.tablet_subject.id_subjectColumn}, New Global.System.Data.DataColumn() {Me.tablet_question.id_subjectColumn}, False)
         Me.Relations.Add(Me.relationFK_t_question_t_subject)
     End Sub
@@ -2085,23 +2085,23 @@ Partial Public Class db_question
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property t_subjectRow() As t_subjectRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_t_mark_t_subject")), t_subjectRow)
-            End Get
-            Set(value As t_subjectRow)
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_t_mark_t_subject"))
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property t_userRow() As t_userRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_t_mark_t_user1")), t_userRow)
             End Get
             Set(value As t_userRow)
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_t_mark_t_user1"))
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property t_subjectRow() As t_subjectRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_t_mark_t_subject")), t_subjectRow)
+            End Get
+            Set(value As t_subjectRow)
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_t_mark_t_subject"))
             End Set
         End Property
 
