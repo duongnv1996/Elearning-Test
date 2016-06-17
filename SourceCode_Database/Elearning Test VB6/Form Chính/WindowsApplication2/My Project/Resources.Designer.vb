@@ -63,9 +63,69 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property activity_login() As System.Drawing.Bitmap
+        Friend ReadOnly Property backgroung() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("activity_login", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("backgroung", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bell__1_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bell (1)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bell__2_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bell (2)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bell_ring() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bell-ring", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property belloff() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("belloff", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bellring() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bellring", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bellringing() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bellringing", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -76,6 +136,16 @@ Namespace My.Resources
         Friend ReadOnly Property cfgc_jpg() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("cfgc.jpg", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property image1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("image1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

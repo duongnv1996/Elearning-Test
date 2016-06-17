@@ -28,26 +28,6 @@ Partial Class FmTesting
         Me.Label2 = New System.Windows.Forms.Label()
         Me.gbSubject = New System.Windows.Forms.GroupBox()
         Me.btnNopBai = New System.Windows.Forms.Button()
-        Me.Button20 = New System.Windows.Forms.Button()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button19 = New System.Windows.Forms.Button()
-        Me.Button18 = New System.Windows.Forms.Button()
-        Me.Button14 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button17 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button16 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.T_answerTableAdapter1 = New WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.VScrollBar2 = New System.Windows.Forms.VScrollBar()
@@ -63,10 +43,10 @@ Partial Class FmTesting
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lbTimeEnd = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.gbSubject.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -75,11 +55,12 @@ Partial Class FmTesting
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(970, 9)
+        Me.Label1.Location = New System.Drawing.Point(1098, 9)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(279, 38)
@@ -88,6 +69,7 @@ Partial Class FmTesting
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
@@ -95,7 +77,7 @@ Partial Class FmTesting
         Me.Label2.Location = New System.Drawing.Point(364, 63)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(651, 51)
+        Me.Label2.Size = New System.Drawing.Size(645, 49)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Kiểm Tra Trắc Nghiệm Elearning"
         '
@@ -103,26 +85,6 @@ Partial Class FmTesting
         '
         Me.gbSubject.BackColor = System.Drawing.Color.Transparent
         Me.gbSubject.Controls.Add(Me.btnNopBai)
-        Me.gbSubject.Controls.Add(Me.Button20)
-        Me.gbSubject.Controls.Add(Me.Button15)
-        Me.gbSubject.Controls.Add(Me.Button10)
-        Me.gbSubject.Controls.Add(Me.Button5)
-        Me.gbSubject.Controls.Add(Me.Button19)
-        Me.gbSubject.Controls.Add(Me.Button18)
-        Me.gbSubject.Controls.Add(Me.Button14)
-        Me.gbSubject.Controls.Add(Me.Button13)
-        Me.gbSubject.Controls.Add(Me.Button9)
-        Me.gbSubject.Controls.Add(Me.Button17)
-        Me.gbSubject.Controls.Add(Me.Button8)
-        Me.gbSubject.Controls.Add(Me.Button12)
-        Me.gbSubject.Controls.Add(Me.Button4)
-        Me.gbSubject.Controls.Add(Me.Button16)
-        Me.gbSubject.Controls.Add(Me.Button7)
-        Me.gbSubject.Controls.Add(Me.Button11)
-        Me.gbSubject.Controls.Add(Me.Button3)
-        Me.gbSubject.Controls.Add(Me.Button6)
-        Me.gbSubject.Controls.Add(Me.Button2)
-        Me.gbSubject.Controls.Add(Me.Button1)
         Me.gbSubject.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbSubject.Location = New System.Drawing.Point(22, 252)
         Me.gbSubject.Margin = New System.Windows.Forms.Padding(4)
@@ -135,8 +97,10 @@ Partial Class FmTesting
         '
         'btnNopBai
         '
+        Me.btnNopBai.FlatAppearance.BorderColor = System.Drawing.Color.Blue
+        Me.btnNopBai.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNopBai.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNopBai.ForeColor = System.Drawing.Color.Maroon
+        Me.btnNopBai.ForeColor = System.Drawing.Color.Red
         Me.btnNopBai.Location = New System.Drawing.Point(89, 208)
         Me.btnNopBai.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNopBai.Name = "btnNopBai"
@@ -145,222 +109,23 @@ Partial Class FmTesting
         Me.btnNopBai.Text = "Nộp Bài"
         Me.btnNopBai.UseVisualStyleBackColor = True
         '
-        'Button20
-        '
-        Me.Button20.Location = New System.Drawing.Point(243, 155)
-        Me.Button20.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(47, 32)
-        Me.Button20.TabIndex = 0
-        Me.Button20.Text = "20"
-        Me.Button20.UseVisualStyleBackColor = True
-        '
-        'Button15
-        '
-        Me.Button15.Location = New System.Drawing.Point(243, 116)
-        Me.Button15.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(47, 32)
-        Me.Button15.TabIndex = 0
-        Me.Button15.Text = "15"
-        Me.Button15.UseVisualStyleBackColor = True
-        '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(243, 76)
-        Me.Button10.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(47, 32)
-        Me.Button10.TabIndex = 0
-        Me.Button10.Text = "10"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(243, 37)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(47, 32)
-        Me.Button5.TabIndex = 0
-        Me.Button5.Text = "5"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button19
-        '
-        Me.Button19.Location = New System.Drawing.Point(188, 155)
-        Me.Button19.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(47, 32)
-        Me.Button19.TabIndex = 0
-        Me.Button19.Text = "19"
-        Me.Button19.UseVisualStyleBackColor = True
-        '
-        'Button18
-        '
-        Me.Button18.Location = New System.Drawing.Point(133, 155)
-        Me.Button18.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(47, 32)
-        Me.Button18.TabIndex = 0
-        Me.Button18.Text = "18"
-        Me.Button18.UseVisualStyleBackColor = True
-        '
-        'Button14
-        '
-        Me.Button14.Location = New System.Drawing.Point(188, 116)
-        Me.Button14.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(47, 32)
-        Me.Button14.TabIndex = 0
-        Me.Button14.Text = "14"
-        Me.Button14.UseVisualStyleBackColor = True
-        '
-        'Button13
-        '
-        Me.Button13.Location = New System.Drawing.Point(133, 116)
-        Me.Button13.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(47, 32)
-        Me.Button13.TabIndex = 0
-        Me.Button13.Text = "13"
-        Me.Button13.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.Location = New System.Drawing.Point(188, 76)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(47, 32)
-        Me.Button9.TabIndex = 0
-        Me.Button9.Text = "9"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Button17
-        '
-        Me.Button17.Location = New System.Drawing.Point(79, 155)
-        Me.Button17.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(47, 32)
-        Me.Button17.TabIndex = 0
-        Me.Button17.Text = "17"
-        Me.Button17.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.Location = New System.Drawing.Point(133, 76)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(47, 32)
-        Me.Button8.TabIndex = 0
-        Me.Button8.Text = "8"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Button12
-        '
-        Me.Button12.Location = New System.Drawing.Point(79, 116)
-        Me.Button12.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(47, 32)
-        Me.Button12.TabIndex = 0
-        Me.Button12.Text = "12"
-        Me.Button12.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(188, 37)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(47, 32)
-        Me.Button4.TabIndex = 0
-        Me.Button4.Text = "4"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button16
-        '
-        Me.Button16.Location = New System.Drawing.Point(24, 155)
-        Me.Button16.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(47, 32)
-        Me.Button16.TabIndex = 0
-        Me.Button16.Text = "16"
-        Me.Button16.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(79, 76)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(47, 32)
-        Me.Button7.TabIndex = 0
-        Me.Button7.Text = "7"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button11
-        '
-        Me.Button11.Location = New System.Drawing.Point(24, 116)
-        Me.Button11.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(47, 32)
-        Me.Button11.TabIndex = 0
-        Me.Button11.Text = "11"
-        Me.Button11.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(133, 37)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(47, 32)
-        Me.Button3.TabIndex = 0
-        Me.Button3.Text = "3"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(24, 76)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(47, 32)
-        Me.Button6.TabIndex = 0
-        Me.Button6.Text = "6"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(79, 37)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(47, 32)
-        Me.Button2.TabIndex = 0
-        Me.Button2.Text = "2"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(24, 37)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(47, 32)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'T_answerTableAdapter1
         '
         Me.T_answerTableAdapter1.ClearBeforeFill = True
         '
         'Panel1
         '
+        Me.Panel1.AutoScroll = True
         Me.Panel1.Controls.Add(Me.VScrollBar2)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1400, 740)
+        Me.Panel1.Size = New System.Drawing.Size(1450, 740)
         Me.Panel1.TabIndex = 6
         Me.Panel1.Visible = False
         '
         'VScrollBar2
         '
-        Me.VScrollBar2.Location = New System.Drawing.Point(1379, -15)
+        Me.VScrollBar2.Location = New System.Drawing.Point(1368, 0)
         Me.VScrollBar2.Name = "VScrollBar2"
         Me.VScrollBar2.Size = New System.Drawing.Size(21, 3168)
         Me.VScrollBar2.TabIndex = 0
@@ -368,10 +133,11 @@ Partial Class FmTesting
         '
         'Panel2
         '
+        Me.Panel2.AutoScroll = True
         Me.Panel2.Controls.Add(Me.Panel1)
         Me.Panel2.Location = New System.Drawing.Point(373, 235)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1400, 3200)
+        Me.Panel2.Size = New System.Drawing.Size(1450, 3200)
         Me.Panel2.TabIndex = 0
         '
         'lblHoTen
@@ -417,7 +183,7 @@ Partial Class FmTesting
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Times New Roman", 12.0!)
-        Me.Label6.Location = New System.Drawing.Point(684, 195)
+        Me.Label6.Location = New System.Drawing.Point(855, 191)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(154, 22)
         Me.Label6.TabIndex = 10
@@ -445,7 +211,7 @@ Partial Class FmTesting
         '
         Me.lbTimeStart.AutoSize = True
         Me.lbTimeStart.Font = New System.Drawing.Font("Times New Roman", 12.0!)
-        Me.lbTimeStart.Location = New System.Drawing.Point(838, 195)
+        Me.lbTimeStart.Location = New System.Drawing.Point(1009, 191)
         Me.lbTimeStart.Name = "lbTimeStart"
         Me.lbTimeStart.Size = New System.Drawing.Size(0, 22)
         Me.lbTimeStart.TabIndex = 13
@@ -454,7 +220,7 @@ Partial Class FmTesting
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Times New Roman", 12.0!)
-        Me.Label10.Location = New System.Drawing.Point(1078, 195)
+        Me.Label10.Location = New System.Drawing.Point(1157, 191)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(163, 22)
         Me.Label10.TabIndex = 14
@@ -464,7 +230,7 @@ Partial Class FmTesting
         '
         Me.lbTimeEnd.AutoSize = True
         Me.lbTimeEnd.Font = New System.Drawing.Font("Times New Roman", 12.0!)
-        Me.lbTimeEnd.Location = New System.Drawing.Point(1247, 195)
+        Me.lbTimeEnd.Location = New System.Drawing.Point(1326, 191)
         Me.lbTimeEnd.Name = "lbTimeEnd"
         Me.lbTimeEnd.Size = New System.Drawing.Size(0, 22)
         Me.lbTimeEnd.TabIndex = 15
@@ -475,9 +241,17 @@ Partial Class FmTesting
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape2, Me.LineShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(1773, 3435)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(1390, 763)
         Me.ShapeContainer1.TabIndex = 16
         Me.ShapeContainer1.TabStop = False
+        '
+        'LineShape2
+        '
+        Me.LineShape2.Name = "LineShape2"
+        Me.LineShape2.X1 = 370
+        Me.LineShape2.X2 = 370
+        Me.LineShape2.Y1 = 220
+        Me.LineShape2.Y2 = 32000
         '
         'LineShape1
         '
@@ -485,9 +259,13 @@ Partial Class FmTesting
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LineShape1.Name = "LineShape1"
         Me.LineShape1.X1 = 2
-        Me.LineShape1.X2 = 1768
+        Me.LineShape1.X2 = 1385
         Me.LineShape1.Y1 = 220
         Me.LineShape1.Y2 = 220
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
         '
         'PictureBox1
         '
@@ -500,24 +278,11 @@ Partial Class FmTesting
         Me.PictureBox1.TabIndex = 17
         Me.PictureBox1.TabStop = False
         '
-        'LineShape2
-        '
-        Me.LineShape2.Name = "LineShape2"
-        Me.LineShape2.X1 = 370
-        Me.LineShape2.X2 = 370
-        Me.LineShape2.Y1 = 219
-        Me.LineShape2.Y2 = 32000
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 1000
-        '
         'FmTesting
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.AutoScroll = True
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1348, 721)
+        Me.ClientSize = New System.Drawing.Size(1390, 763)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lbTimeEnd)
         Me.Controls.Add(Me.Label10)
@@ -551,26 +316,6 @@ Partial Class FmTesting
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents gbSubject As System.Windows.Forms.GroupBox
-    Friend WithEvents Button20 As System.Windows.Forms.Button
-    Friend WithEvents Button15 As System.Windows.Forms.Button
-    Friend WithEvents Button10 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button19 As System.Windows.Forms.Button
-    Friend WithEvents Button18 As System.Windows.Forms.Button
-    Friend WithEvents Button14 As System.Windows.Forms.Button
-    Friend WithEvents Button13 As System.Windows.Forms.Button
-    Friend WithEvents Button9 As System.Windows.Forms.Button
-    Friend WithEvents Button17 As System.Windows.Forms.Button
-    Friend WithEvents Button8 As System.Windows.Forms.Button
-    Friend WithEvents Button12 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button16 As System.Windows.Forms.Button
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents Button11 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents btnNopBai As System.Windows.Forms.Button
     Friend WithEvents T_answerTableAdapter1 As WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter
     Friend WithEvents Panel1 As System.Windows.Forms.Panel

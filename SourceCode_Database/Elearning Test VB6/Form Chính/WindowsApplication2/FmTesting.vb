@@ -1,6 +1,19 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class FmTesting
+    Implements ICheckBox
+    'GroupBox
+    Dim w As Integer = 24       'location button 1
+
+    Dim h As Integer = 37
+    Dim sizeW As Integer = 47   'size button 1  
+    Dim sizeH As Integer = 32
+
+    Dim intWidth As Integer     ' Max Size scroll panel 2
+    Dim intHeight As Integer
+
+    Dim listBtnQuestion As New List(Of Button)
+
     Private heightPanel As Integer = 200
     Private subject As String = "KTHĐC"
     Private numberOfQuest As Integer = 20
@@ -10,6 +23,8 @@ Public Class FmTesting
     Private _user As New User
     Private _subjectItem As New SubjectItem
     Private timer As Long
+    Private isFrirstClick As Boolean = True
+    Private mark As Double
     Public Property subjectItem() As SubjectItem
         Get
             Return _subjectItem
@@ -18,7 +33,14 @@ Public Class FmTesting
             _subjectItem = value
         End Set
     End Property
-    
+    Public Property listBtn() As List(Of Button)
+        Get
+            Return listBtnQuestion
+        End Get
+        Set(value As List(Of Button))
+            listBtnQuestion = value
+        End Set
+    End Property
     Public Property user() As User
         Get
             Return _user
@@ -29,20 +51,17 @@ Public Class FmTesting
     End Property
     Public Property subjectCode() As String
         Get
-            Return Subject
+            Return subject
         End Get
         Set(value As String)
             subject = value
         End Set
     End Property
-
-    Property Timer_Tick As FmSubject
-
     Private Function getData()
         Try
             con.Open()
             ' random 20 question when query 
-            Dim queryString As String = "select TOP 20 * from t_question where id_subject= " & "'" & subject & "'" & "ORDER BY NEWID()"
+            Dim queryString As String = "select TOP " & _subjectItem.numberQuest & "  * from t_question where id_subject= " & "'" & _subjectItem.id & "'" & "ORDER BY NEWID()"
             Dim sqlSelect As New SqlCommand(queryString, con)
             '  sqlSelect.Parameters.AddWithValue("@idSubject", "MMT")
             Dim reader As SqlDataReader = sqlSelect.ExecuteReader()
@@ -57,7 +76,7 @@ Public Class FmTesting
                     Dim idSubject As String = reader("id_subject").ToString
                     Dim id As Integer = Integer.Parse(reader("id_quest").ToString)
                     Dim quest As String = ""
-                    quest = "Cau " & index & " " & reader("content_quest").ToString
+                    quest = "Câu " & index & ": " & reader("content_quest").ToString
                     If (StrComp("", quest, CompareMethod.Text) <> 0 And id <> -1) Then
                         itemQ.contentQuest() = quest
                         itemQ.idQuest() = id
@@ -70,6 +89,8 @@ Public Class FmTesting
 
                     index = index + 1
                     listItemQ.Add(itemQ)
+
+
 
                 End While
 
@@ -135,24 +156,57 @@ Public Class FmTesting
 
     End Function
 
-    
+
     Private Sub FmTesting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Panel2.Size = New Size(Width, heightPanel * numberOfQuest + 100)
+        '_subjectItem.id = "KTHĐC"
+        '_subjectItem.name = "Kinh tế học đại cương"
+        '_subjectItem.time = 180
+        '_subjectItem.numberQuest = 30
+        '_subjectItem.dayTest = "20-2-2012"
+        '_user.msv = "1481310014"
+        '_user.name = "Nguyen van duong"
+        '_user.grade = "D9CNPM"
+
         getData()
         Dim i As Integer = 0
         For Each Item As ctQuestion In listQuest
-            Item.Size = New Size(1000, heightPanel)
-            Item.Location = New Point(10, i * heightPanel + marginSize * i)
-            Me.Panel2.Controls.Add(Item)
+            Item.Size = New Size(2000, heightPanel)
+            Item.Location = New Point(10, i * heightPanel + marginSize)
+
+            Item.iCheckbox = New FmTesting
             i = i + 1
+            Item.indexQuestion = i
+            Dim btn As New Button
+           
+            btn.Location = New System.Drawing.Point(w, h)
+            btn.Margin = New System.Windows.Forms.Padding(4)
+            btn.Name = i
+            btn.Size = New System.Drawing.Size(sizeW, sizeH)
+            btn.TabIndex = 0
+            btn.Text = i
+            btn.UseVisualStyleBackColor = True
+            AddHandler btn.Click, AddressOf All_Buttons_Click
+            listBtnQuestion.Add(btn)
+            Me.gbSubject.Controls.Add(btn)
+            w = w + sizeW + 4
+            If i Mod 5 = 0 Then
+                h = h + sizeH + 4
+                w = 24
+
+            End If
+            Item.btn = btn
+            Me.Panel2.Controls.Add(Item)
 
         Next
+        Me.btnNopBai.Location = New Point(89, h + 20)
+        Me.gbSubject.Size = New Size(313, h + 20 + btnNopBai.Size.Height + 20)
         If IsNothing(user) <> True Then
             lbHoten.Text = _user.name
             lbClass.Text = _user.grade
             lbMsv.Text = _user.msv
         End If
-        Dim timeStart as String = DateTime.Now.ToLongTimeString
+        Dim timeStart As String = DateTime.Now.ToLongTimeString
         lbTimeStart.Text = timeStart
 
         If IsNothing(subjectItem) <> True Then
@@ -160,72 +214,187 @@ Public Class FmTesting
         Else
             gbSubject.Text = "Câu hỏi"
         End If
-        ' TIME
-        ' Timer1.Start()
-        timer = 30
-        lbTimeEnd.Text = DateTime.Now.AddHours(1).ToLocalTime.ToShortTimeString
+
+        Timer1.Start()
+        timer = _subjectItem.time * 60
+
+        If (_subjectItem.time <= 60 AndAlso _subjectItem.time > 0) Then
+            lbTimeEnd.Text = DateTime.Now.AddMinutes(_subjectItem.time).ToLocalTime.ToShortTimeString
+        Else
+            Dim hour As Integer = _subjectItem.time / 60
+            Dim min As Double = _subjectItem.time Mod 60
+            lbTimeEnd.Text = DateTime.Now.AddHours(hour).AddMinutes(min).ToLocalTime.ToShortTimeString
+        End If
+
+
+       
+
+        For i = 1 To 19
+          
+        Next
+       
+
+        intHeight = Height - Panel2.Location.Y
+        intWidth = Width
+
+        'set size scroll panel
+        Panel2.MaximumSize = New Size(intWidth, intHeight)
+
+        Panel2.AutoScroll = True
+
+        For Each btn As Button In listBtnQuestion
+
+        Next
+
+    End Sub
+    Private Sub All_Buttons_Click(sender As Object, e As EventArgs)
+        '  MsgBox(sender.Text.ToString)
+        Dim pos As Integer = Integer.Parse(sender.Text.ToString)
+        ' scroll to question location
+        Panel2.AutoScrollPosition = New Point(0, pos * heightPanel - heightPanel)
+    End Sub
+    Private Sub finishTest()
+
+        If (isFrirstClick) Then
+            isFrirstClick = False
+            mark = getMark()
+            Try
+                con.Open()
+                Dim sql As New SqlCommand("insert into t_mark (msv,id_subject,mark) values ('" & _user.msv & "','" & _subjectItem.id & "', @mark )", con)
+                sql.Parameters.AddWithValue("@mark", mark)
+                sql.ExecuteNonQuery()
+                con.Close()
+
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+
+            End Try
+        End If
+        Timer1.Stop()
+        If MessageBox.Show("Bạn được " & mark & " điểm. Thoát chương trình?", "Báo điểm", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
+
+            For Each btn As Button In listBtnQuestion
+                RemoveHandler btn.Click, AddressOf All_Buttons_Click
+            Next
+            Me.Close()
+        End If
+
+
     End Sub
 
-    Private Sub VScrollBar1_Scroll(sender As Object, e As ScrollEventArgs)
-       
-    End Sub
 
 
     Private Sub btnNopBai_Click(sender As Object, e As EventArgs) Handles btnNopBai.Click
-        MsgBox("Mark = " & getMark())
+        finishTest()
+
     End Sub
 
 
     Private Function getMark() As Double
         Dim mark As Double = 0
         For Each itemCtQuest As ctQuestion In listQuest
-            If (itemCtQuest.rbA.Checked = True) Then
+            Dim isTrueSelected As Boolean = False
+          
+            'A
+            If (itemCtQuest.rbA.Visible = True AndAlso itemCtQuest.rbA.Checked = True) Then
                 If (itemCtQuest.QuestionItem().ans(0).isTrue = True) Then
                     mark = mark + 0.5
-                End If
-            End If
+                    isTrueSelected = True
 
+                End If
+            Else
+                If (itemCtQuest.rbA.Visible = True AndAlso itemCtQuest.QuestionItem().ans(0).isTrue = True) Then
+                    itemCtQuest.rbA.ForeColor = Color.Red
+                End If
+
+            End If
+            'B
             If (itemCtQuest.rbB.Checked = True) Then
-                If (itemCtQuest.QuestionItem().ans(1).isTrue = True) Then
+                If (itemCtQuest.rbB.Visible = True AndAlso itemCtQuest.QuestionItem().ans(1).isTrue = True) Then
                     mark = mark + 0.5
+                    isTrueSelected = True
+                
+                End If
+            Else
+                If (itemCtQuest.rbB.Visible = True AndAlso itemCtQuest.QuestionItem().ans(1).isTrue = True) Then
+                    itemCtQuest.rbB.ForeColor = Color.Red
                 End If
             End If
-            If (itemCtQuest.rbC.Checked = True And itemCtQuest.rbC.Visible = True) Then
+            'C
+            If (itemCtQuest.rbC.Visible = True AndAlso itemCtQuest.rbC.Checked = True) Then
                 If (itemCtQuest.QuestionItem().ans(2).isTrue = True) Then
                     mark = mark + 0.5
+                    isTrueSelected = True
+               
+                End If
+            Else
+                If (itemCtQuest.rbC.Visible = True AndAlso itemCtQuest.QuestionItem().ans(2).isTrue = True) Then
+                    itemCtQuest.rbC.ForeColor = Color.Red
                 End If
             End If
-            If (itemCtQuest.rbD.Checked = True And itemCtQuest.rbD.Visible = True) Then
+            'D
+            If (itemCtQuest.rbD.Visible = True AndAlso itemCtQuest.rbD.Checked = True) Then
                 If (itemCtQuest.QuestionItem().ans(3).isTrue = True) Then
                     mark = mark + 0.5
+                    isTrueSelected = True
+               
+                End If
+            Else
+                If (itemCtQuest.rbD.Visible = True AndAlso itemCtQuest.QuestionItem().ans(3).isTrue = True) Then
+                    itemCtQuest.rbD.ForeColor = Color.Red
                 End If
             End If
 
-
+            If isTrueSelected <> True Then
+                setBackgroundButton(itemCtQuest.btn, Color.Red)
+            End If
+            itemCtQuest.rbA.AutoCheck = False
+            itemCtQuest.rbB.AutoCheck = False
+            itemCtQuest.rbC.AutoCheck = False
+            itemCtQuest.rbD.AutoCheck = False
         Next
 
         Return mark
     End Function
 
-    Private Sub VScrollBar2_Scroll(sender As Object, e As ScrollEventArgs) Handles VScrollBar2.Scroll
-        Me.Panel2.Top = -Me.VScrollBar2.Value()
-        Me.VScrollBar2.Maximum = Me.Panel2.Size.Height - Me.Panel1.Size.Height
-    End Sub
-
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles lbTimeEnd.Click
-
-    End Sub
+    'Private Sub VScrollBar2_Scroll(sender As Object, e As ScrollEventArgs) Handles VScrollBar2.Scroll
+    '    Me.Panel2.Top = -Me.VScrollBar2.Value()
+    '    Me.VScrollBar2.Maximum = Me.Panel2.Size.Height - Me.Panel1.Size.Height
+    '    Me.gbSubject.Location = New System.Drawing.Point(22, 0)
+    'End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If (timer > 0) Then
             timer = timer - 1
 
-            'lbTimeEnd.Text = timer & "sec"
+            '  lbTimeEnd.Text = timer & "sec"
         Else
-            Timer1.Stop()
+
+            finishTest()
+
             ' MsgBox("Time up")
 
         End If
     End Sub
 
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+    Public Sub check(ByVal btn As Button) Implements ICheckBox.check
+
+
+
+
+        setBackgroundButton(btn, Color.AliceBlue)
+    End Sub
+
+    Private Sub setBackgroundButton(ByVal btn As Button, ByVal color As Color)
+
+        btn.BackColor = color
+        btn.FlatAppearance.BorderColor = System.Drawing.Color.Blue
+
+        btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+    End Sub
+
+   
 End Class

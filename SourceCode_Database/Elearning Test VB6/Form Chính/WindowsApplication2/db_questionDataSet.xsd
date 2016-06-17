@@ -2,14 +2,15 @@
 <xs:schema id="db_question" targetNamespace="http://tempuri.org/db_questionDataSet.xsd" xmlns:mstns="http://tempuri.org/db_questionDataSet.xsd" xmlns="http://tempuri.org/db_questionDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="db_question" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="db_question (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsApplication2.My.MySettings.GlobalReference.Default.db_question" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="db_questionConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="db_questionConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsApplication2.My.MySettings.GlobalReference.Default.db_questionConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="t_answerTableAdapter" GeneratorDataComponentClassName="t_answerTableAdapter" Name="t_answer" UserDataComponentName="t_answerTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="db_question (MySettings)" DbObjectName="db_question.dbo.t_answer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="db_questionConnectionString1 (MySettings)" DbObjectName="db_question.dbo.t_answer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[t_answer] WHERE (([id_ans] = @Original_id_ans) AND ([id_quest] = @Original_id_quest) AND ([true_ans] = @Original_true_ans))</CommandText>
@@ -65,7 +66,7 @@ SELECT id_ans, content_ans, id_quest, true_ans FROM t_answer WHERE (id_ans = @id
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="t_markTableAdapter" GeneratorDataComponentClassName="t_markTableAdapter" Name="t_mark" UserDataComponentName="t_markTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="db_question (MySettings)" DbObjectName="db_question.dbo.t_mark" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="db_questionConnectionString1 (MySettings)" DbObjectName="db_question.dbo.t_mark" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[t_mark] WHERE (([msv] = @Original_msv) AND ([id_subject] = @Original_id_subject) AND ((@IsNull_mark = 1 AND [mark] IS NULL) OR ([mark] = @Original_mark)))</CommandText>
@@ -120,7 +121,7 @@ SELECT msv, id_subject, mark FROM t_mark WHERE (id_subject = @id_subject) AND (m
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="t_questionTableAdapter" GeneratorDataComponentClassName="t_questionTableAdapter" Name="t_question" UserDataComponentName="t_questionTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="db_question (MySettings)" DbObjectName="db_question.dbo.t_question" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="db_questionConnectionString1 (MySettings)" DbObjectName="db_question.dbo.t_question" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[t_question] WHERE (([id_quest] = @Original_id_quest) AND ([id_subject] = @Original_id_subject))</CommandText>
@@ -155,7 +156,7 @@ SELECT id_quest, content_quest, id_subject FROM t_question WHERE (id_quest = @id
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@id_subject" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="id_subject" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_quest" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_quest" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_id_subject" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="id_subject" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id_quest" ColumnName="id_quest" DataSourceName="db_question.dbo.t_question" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id_quest" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_quest" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id_quest" ColumnName="id_quest" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id_quest" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_quest" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -170,10 +171,10 @@ SELECT id_quest, content_quest, id_subject FROM t_question WHERE (id_quest = @id
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="t_subjectTableAdapter" GeneratorDataComponentClassName="t_subjectTableAdapter" Name="t_subject" UserDataComponentName="t_subjectTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="db_question (MySettings)" DbObjectName="db_question.dbo.t_subject" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="db_questionConnectionString1 (MySettings)" DbObjectName="db_question.dbo.t_subject" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [t_subject] WHERE (([id_subject] = @Original_id_subject) AND ([content_subject] = @Original_content_subject) AND ((@IsNull_number_quest = 1 AND [number_quest] IS NULL) OR ([number_quest] = @Original_number_quest)) AND ((@IsNull_timer = 1 AND [timer] IS NULL) OR ([timer] = @Original_timer)) AND ((@IsNull_date_test = 1 AND [date_test] IS NULL) OR ([date_test] = @Original_date_test)))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[t_subject] WHERE (([id_subject] = @Original_id_subject) AND ([content_subject] = @Original_content_subject) AND ((@IsNull_number_quest = 1 AND [number_quest] IS NULL) OR ([number_quest] = @Original_number_quest)) AND ((@IsNull_timer = 1 AND [timer] IS NULL) OR ([timer] = @Original_timer)) AND ((@IsNull_date_test = 1 AND [date_test] IS NULL) OR ([date_test] = @Original_date_test)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_id_subject" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="id_subject" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_content_subject" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="content_subject" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -188,7 +189,7 @@ SELECT id_quest, content_quest, id_subject FROM t_question WHERE (id_quest = @id
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [t_subject] ([id_subject], [content_subject], [number_quest], [timer], [date_test]) VALUES (@id_subject, @content_subject, @number_quest, @timer, @date_test);
+                    <CommandText>INSERT INTO [dbo].[t_subject] ([id_subject], [content_subject], [number_quest], [timer], [date_test]) VALUES (@id_subject, @content_subject, @number_quest, @timer, @date_test);
 SELECT id_subject, content_subject, number_quest, timer, date_test FROM t_subject WHERE (id_subject = @id_subject)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@id_subject" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="id_subject" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -200,14 +201,14 @@ SELECT id_subject, content_subject, number_quest, timer, date_test FROM t_subjec
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT id_subject, content_subject, number_quest, timer, date_test FROM t_subject</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id_subject, content_subject, number_quest, timer, date_test FROM dbo.t_subject</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [t_subject] SET [id_subject] = @id_subject, [content_subject] = @content_subject, [number_quest] = @number_quest, [timer] = @timer, [date_test] = @date_test WHERE (([id_subject] = @Original_id_subject) AND ([content_subject] = @Original_content_subject) AND ((@IsNull_number_quest = 1 AND [number_quest] IS NULL) OR ([number_quest] = @Original_number_quest)) AND ((@IsNull_timer = 1 AND [timer] IS NULL) OR ([timer] = @Original_timer)) AND ((@IsNull_date_test = 1 AND [date_test] IS NULL) OR ([date_test] = @Original_date_test)));
+                    <CommandText>UPDATE [dbo].[t_subject] SET [id_subject] = @id_subject, [content_subject] = @content_subject, [number_quest] = @number_quest, [timer] = @timer, [date_test] = @date_test WHERE (([id_subject] = @Original_id_subject) AND ([content_subject] = @Original_content_subject) AND ((@IsNull_number_quest = 1 AND [number_quest] IS NULL) OR ([number_quest] = @Original_number_quest)) AND ((@IsNull_timer = 1 AND [timer] IS NULL) OR ([timer] = @Original_timer)) AND ((@IsNull_date_test = 1 AND [date_test] IS NULL) OR ([date_test] = @Original_date_test)));
 SELECT id_subject, content_subject, number_quest, timer, date_test FROM t_subject WHERE (id_subject = @id_subject)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@id_subject" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="id_subject" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -239,7 +240,7 @@ SELECT id_subject, content_subject, number_quest, timer, date_test FROM t_subjec
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="t_userTableAdapter" GeneratorDataComponentClassName="t_userTableAdapter" Name="t_user" UserDataComponentName="t_userTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="db_question (MySettings)" DbObjectName="db_question.dbo.t_user" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="db_questionConnectionString1 (MySettings)" DbObjectName="db_question.dbo.t_user" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[t_user] WHERE (([msv] = @Original_msv) AND ([password] = @Original_password) AND ([name] = @Original_name) AND ([class] = @Original_class))</CommandText>

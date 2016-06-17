@@ -5,19 +5,18 @@ Public Class SubjectItem
 
     Private _id_subject As String
     Private _name As String
-    Private _number_quest As Integer
-    Private _time As Integer
-    Private _date_test As String
 
-    Public Property number_quest() As Integer
+    Private _dayTest As String
+    Private _numberQuest As Integer
+    Private _time As Integer
+    Public Property numberQuest() As Integer
         Get
-            Return _number_quest
+            Return _numberQuest
         End Get
         Set(value As Integer)
-            _number_quest = value
+            _numberQuest = value
         End Set
     End Property
-
     Public Property time() As Integer
         Get
             Return _time
@@ -26,12 +25,13 @@ Public Class SubjectItem
             _time = value
         End Set
     End Property
-    Public Property date_test() As String
+
+    Public Property dayTest() As String
         Get
-            Return _date_test
+            Return _dayTest
         End Get
         Set(value As String)
-            _date_test = value
+            _dayTest = value
         End Set
     End Property
     Public Property id() As String
@@ -51,7 +51,6 @@ Public Class SubjectItem
             _name = value
         End Set
     End Property
-
 
 
 

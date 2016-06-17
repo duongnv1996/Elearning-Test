@@ -32,18 +32,20 @@ Partial Class ctQuestion
         'lbQuest
         '
         Me.lbQuest.AutoSize = True
+        Me.lbQuest.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.lbQuest.Location = New System.Drawing.Point(27, 9)
         Me.lbQuest.Name = "lbQuest"
-        Me.lbQuest.Size = New System.Drawing.Size(51, 17)
+        Me.lbQuest.Size = New System.Drawing.Size(56, 19)
         Me.lbQuest.TabIndex = 0
         Me.lbQuest.Text = "Label1"
         '
         'rbA
         '
         Me.rbA.AutoSize = True
+        Me.rbA.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.rbA.Location = New System.Drawing.Point(46, 68)
         Me.rbA.Name = "rbA"
-        Me.rbA.Size = New System.Drawing.Size(115, 21)
+        Me.rbA.Size = New System.Drawing.Size(109, 21)
         Me.rbA.TabIndex = 1
         Me.rbA.TabStop = True
         Me.rbA.Text = "RadioButton1"
@@ -52,9 +54,10 @@ Partial Class ctQuestion
         'rbB
         '
         Me.rbB.AutoSize = True
+        Me.rbB.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.rbB.Location = New System.Drawing.Point(46, 106)
         Me.rbB.Name = "rbB"
-        Me.rbB.Size = New System.Drawing.Size(115, 21)
+        Me.rbB.Size = New System.Drawing.Size(109, 21)
         Me.rbB.TabIndex = 2
         Me.rbB.TabStop = True
         Me.rbB.Text = "RadioButton2"
@@ -63,9 +66,10 @@ Partial Class ctQuestion
         'rbC
         '
         Me.rbC.AutoSize = True
+        Me.rbC.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.rbC.Location = New System.Drawing.Point(46, 145)
         Me.rbC.Name = "rbC"
-        Me.rbC.Size = New System.Drawing.Size(115, 21)
+        Me.rbC.Size = New System.Drawing.Size(109, 21)
         Me.rbC.TabIndex = 3
         Me.rbC.TabStop = True
         Me.rbC.Text = "RadioButton3"
@@ -74,9 +78,10 @@ Partial Class ctQuestion
         'rbD
         '
         Me.rbD.AutoSize = True
+        Me.rbD.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.rbD.Location = New System.Drawing.Point(46, 181)
         Me.rbD.Name = "rbD"
-        Me.rbD.Size = New System.Drawing.Size(115, 21)
+        Me.rbD.Size = New System.Drawing.Size(109, 21)
         Me.rbD.TabIndex = 4
         Me.rbD.TabStop = True
         Me.rbD.Text = "RadioButton4"
@@ -92,7 +97,7 @@ Partial Class ctQuestion
         Me.Controls.Add(Me.rbA)
         Me.Controls.Add(Me.lbQuest)
         Me.Name = "ctQuestion"
-        Me.Size = New System.Drawing.Size(1496, 227)
+        Me.Size = New System.Drawing.Size(1267, 227)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

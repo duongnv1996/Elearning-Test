@@ -121,10 +121,31 @@
   <data name="it" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\it.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="backgroung" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backgroung.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bellringing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bellringing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cfgc.jpg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cfgc.jpg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="activity_login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\activity_login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="belloff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\belloff1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bell (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bell (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bellring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bellring.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bell (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bell (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bell-ring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bell-ring.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -23,25 +23,39 @@ Public Class fmAdd
     Private mSubject As String
     Private con As New SqlConnection("Data Source=MAYTINH-JRUTQDS;Initial Catalog=db_question;Integrated Security=True")
     Private dataCollection As New AutoCompleteStringCollection
-    Dim ds As New DataSet
     Dim sqlQuest As String = "SELECT * FROM t_question"
     Dim sqlSub As String = "SELECT * FROM t_subject"
     Dim sqlAns As String = "SELECT * FROM t_answer"
     Dim adapterQuest As New SqlDataAdapter(sqlQuest, con)
     Dim adapterAns As New SqlDataAdapter(sqlAns, con)
     Dim adapterSub As New SqlDataAdapter(sqlSub, con)
+   
+    Dim tableSubject As DataTable
+    Dim tableQuestion As DataTable
+    Dim ds As New db_question
+    Dim tableAnswer As DataTable
     Private Sub loadToDGV()
-        T_questionDataGridView.DataSource = db_question.t_question
-        T_answerDataGridView.DataSource = db_question.t_answer
-        T_subjectDataGridView.DataSource = db_question.t_subject
+        
+        loadFromAdapter(adapterSub, "t_subject", tableSubject)
+        loadFromAdapter(adapterQuest, "t_question", tableQuestion)
+        loadFromAdapter(adapterAns, "t_answer", tableAnswer)
+        T_questionDataGridView.DataSource = tableQuestion
+        T_answerDataGridView.DataSource = tableAnswer
+        T_subjectDataGridView.DataSource = tableSubject
+    End Sub
+    Private Sub loadFromAdapter(ByVal adapter As SqlDataAdapter, ByVal name As String, ByRef table As DataTable)
+
+        adapter.Fill(ds, name)
+        table = ds.Tables(name)
     End Sub
     Private Sub fmAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Show()
         txtMonHoc.Focus()
         con.Open()
-        adapterQuest.Fill(ds, "t_question")
-        adapterAns.Fill(ds, "t_answer")
-        adapterSub.Fill(ds, "t_subject")
+
+       
+        loadToDGV()
+
         con.Close()
         cbbType.SelectedIndex = 0
     
@@ -50,15 +64,10 @@ Public Class fmAdd
         txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource
         txtSearch.AutoCompleteCustomSource = dataCollection
 
-        'TODO: This line of code loads data into the 'db_question.t_subject' table. You can move, or remove it, as needed.
-        Me.T_subjectTableAdapter.Fill(Me.db_question.t_subject)
-        'TODO: This line of code loads data into the 'db_question.t_answer' table. You can move, or remove it, as needed.
-        Me.T_answerTableAdapter.Fill(Me.db_question.t_answer)
-        'TODO: This line of code loads data into the 'db_question.t_question' table. You can move, or remove it, as needed.
-        Me.T_questionTableAdapter.Fill(Me.db_question.t_question)
-        setDataForDataCollection(db_question.t_subject)
-        setDataForDataCollection(db_question.t_answer)
-        setDataForDataCollection(db_question.t_question)
+       
+        setDataForDataCollection(tableSubject)
+        setDataForDataCollection(tableAnswer)
+        setDataForDataCollection(tableQuestion)
         txtSearch.Visible = True
         lstQuestion.HorizontalScrollbar = True
         Me.AutoSize = True
@@ -88,7 +97,8 @@ Public Class fmAdd
         If (txtCQuest.Text.ToString.Length > 0 And txtTrueAns.Text.ToString.Length > 0) Then
             SetTitleAndListValues(sheet, 1, 1, lblTitle1, lstQuestion, txtCQuest.Text.ToString, txtTrueAns.Text.ToString)
         Else
-            MsgBox("Vui lòng điền đầy đủ thông tin", vbOK, "Thông báo")
+
+            MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
             txtCQuest.Focus()
         End If
 
@@ -119,7 +129,7 @@ Public Class fmAdd
 
         ' Set the title.
         range = sheet.Cells(row, col)
-        lbl.Text = txtMonHoc.Text
+        'lbl.Text = txtMonHoc.Text
         'lbl.ForeColor = range.Font.Color
         'lbl.BackColor = range.Interior.Color
 
@@ -154,8 +164,8 @@ Public Class fmAdd
         'cmdRead_Click()
         'FolderBrowserDialog1.ShowDialog()
         If (txtFile.Text.Equals("")) Then
-            MsgBox("Vui lòng điền đầy đủ thông tin", vbOK, "Thông báo")
 
+            MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             cmdRead_Click(txtFile.Text)
 
@@ -224,11 +234,24 @@ Public Class fmAdd
         OpenFileDialog1.Filter = "Excel Worksheets|*.xls;*.xlsx"
         OpenFileDialog1.ShowDialog()
     End Sub
-
+    Function getLastIDQuestion() As Integer
+        Dim lastID As Integer = 0
+        'Dim constring As String = "Data Source=DESKTOP-6N5I9TS;Initial Catalog=DB_Demo;Integrated Security=True"
+        'Dim con As New SqlConnection(constring)
+        con.Open()
+        Dim cmd As New SqlCommand("select max(id_ans) from t_answer", con)
+        Dim result As String
+        result = cmd.ExecuteScalar().ToString
+        If (Not String.IsNullOrEmpty(result)) Then
+            lastID = Val(result)
+        End If
+        con.Close()
+        Return lastID
+    End Function
     Private Sub btnAddDB_Click(sender As Object, e As EventArgs) Handles btnAddDB.Click
         Dim isAdd As Boolean
         isAdd = False
-
+        Dim lasIdAnswer As Integer = getLastIDQuestion()
 
         If (txtMonHoc.Text.Trim.ToString.Length > 0 And txtIDSub.Text.Trim.ToString.Length > 0 And txtCQuest.Text.Trim.ToString.Length > 0 And txtTrueAns.Text.Trim.ToString.Length > 0) Then
             mSubject = txtMonHoc.Text.Trim.ToString
@@ -239,6 +262,8 @@ Public Class fmAdd
             Try
                 con.Open()
                 'Them vao bang t_subject
+
+                'select điemi from tenbang where macb='& mcb '
                 Dim queryString As String = "select * from t_subject where id_subject=@idSubject"
                 Dim sqlSelect As New SqlCommand(queryString, con)
                 sqlSelect.Parameters.AddWithValue("@idSubject", idSubject)
@@ -257,47 +282,56 @@ Public Class fmAdd
                     sql.ExecuteNonQuery()
                     'Them vao bang question
                     If (lstQuestion.Items.Count > 0) Then
+
+
                         Dim idQ As Integer = -1
                         For Each item In lstQuestion.Items
                             If (item.ToString.Equals("") <> True) Then
                                 If (item.ToString.Contains(cQuest)) Then
                                     Dim sqlInsertQ As New SqlCommand("insert into t_question (content_quest,id_subject) values (N'" & item.ToString & "',N'" & idSubject & "')SELECT SCOPE_IDENTITY();", con)
                                     idQ = CInt(sqlInsertQ.ExecuteScalar())
+                                    ' Cau tra loi dung
+
                                 ElseIf (item.ToString.Contains(cTrueAns)) Then
+                                    Dim content As String = item.ToString.Trim
+                                    content = Replace(content, "*", "")
+                                    lasIdAnswer = lasIdAnswer + 1
                                     Dim sT As String
-                                    sT = "Insert into t_answer(content_ans,id_quest,true_ans) values (N'" & item.ToString.Trim & "'" & "," & idQ & "," & 1 & ")"
+                                    sT = "Insert into t_answer(id_ans,content_ans,id_quest,true_ans) values (" & lasIdAnswer & " , N'" & content & "'" & "," & idQ & "," & 1 & " )"
                                     Dim sqlInsertT As New SqlCommand(sT, con)
                                     sqlInsertT.ExecuteNonQuery()
                                 Else
+                                    lasIdAnswer = lasIdAnswer + 1
                                     Dim s As String
-                                    s = "Insert into t_answer(content_ans,id_quest,true_ans) values (N'" & item.ToString.Trim & "'" & "," & idQ & "," & 0 & ")"
+                                    s = "Insert into t_answer(id_ans,content_ans,id_quest,true_ans) values ( " & lasIdAnswer & " , N'" & item.ToString.Trim & "'" & "," & idQ & "," & 0 & " )"
                                     Dim sqlInsertA As New SqlCommand(s, con)
                                     sqlInsertA.ExecuteNonQuery()
                                 End If
                             End If
                         Next
                     End If
-                    Me.T_subjectTableAdapter.Fill(Me.db_question.t_subject)
-                    Me.T_answerTableAdapter.Fill(Me.db_question.t_answer)
-                    Me.T_questionTableAdapter.Fill(Me.db_question.t_question)
-                    MsgBox("Thêm thành công " & mSubject, vbOKOnly, "Thông báo")
+                    'Me.T_subjectTableAdapter.Fill(Me.db_question.t_subject)
+                    'Me.T_answerTableAdapter.Fill(Me.db_question.t_answer)
+                    'Me.T_questionTableAdapter.Fill(Me.db_question.t_question)
+                    loadToDGV()
 
-
+                    MessageBox.Show("Thêm thành công " & mSubject, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
-                    MsgBox("ID môn học : " & idSubject & " đã tồn tại. Vui lòng chọn mã ID khác", vbOKOnly, "Lỗi ID")
 
+                    MessageBox.Show("ID môn học : " & idSubject & " đã tồn tại. Vui lòng chọn mã ID khác", "Lỗi ID", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
 
                 con.Close()
             Catch ex As Exception
-                MsgBox("Không thể thêm " & " do " & ex.Message, vbOKOnly, "Thông báo")
+
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm . Vui lòng kiểm tra lại định dạng file Excel ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 con.Close()
             End Try
 
 
         Else
-            MsgBox("Vui lòng điền đầy đủ thông tin", vbOK, "Thông báo")
+            MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
     Private Function getGreatString(str As String) As String
@@ -324,6 +358,7 @@ Public Class fmAdd
     Private Sub txtMonHoc_LostFocus() Handles txtMonHoc.LostFocus
         If (txtMonHoc.Text.Length > 0) Then
             txtIDSub.Text = getGreatString(txtMonHoc.Text.ToString)
+            lblTitle1.Text = txtMonHoc.Text
         End If
 
 
@@ -350,12 +385,12 @@ Public Class fmAdd
     Private Sub cmdUpdateDB_Click(sender As Object, e As EventArgs) Handles cmdUpdateDB.Click
 
         Try
-            Me.TableAdapterManager.UpdateAll(db_question)
+            Me.TableAdapterManager.UpdateAll(ds)
 
-            MsgBox("Lưu vào CSDL thành công")
+            MsgBox("Lưu vào CSDL thành công", MsgBoxStyle.OkOnly, "Thông báo")
             cmdUpdateDB.Visible = False
         Catch ex As Exception
-            MsgBox("Không thể lưu vào CSDL")
+            MsgBox("Không thể lưu vào CSDL vì ", MsgBoxStyle.OkOnly, "Thông báo")
         End Try
 
 
@@ -367,15 +402,6 @@ Public Class fmAdd
 
 
     End Sub
-
-    Private Sub T_questionDataGridView_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles T_questionDataGridView.CellBeginEdit
-
-
-    End Sub
-
- 
-
-
     Private Sub T_questionDataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.CellValueChanged
         cmdUpdateDB.Visible = True
 
@@ -383,6 +409,10 @@ Public Class fmAdd
 
     Private Sub T_subjectDataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles T_subjectDataGridView.CellValueChanged
         cmdUpdateDB.Visible = True
+    End Sub
+
+    Private Sub T_answerDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles T_answerDataGridView.CellContentClick
+
     End Sub
 
     
@@ -401,13 +431,13 @@ Public Class fmAdd
 
         If (e.RowIndex < count - 1) Then
             idSubjectFocus = T_subjectDataGridView.Rows(e.RowIndex).Cells(0).Value
-            dv = New DataView(db_question.t_question, "id_subject = '" & idSubjectFocus & "'", "id_quest Desc", DataViewRowState.CurrentRows)
+            dv = New DataView(tableQuestion, "id_subject = '" & idSubjectFocus & "'", "id_quest Desc", DataViewRowState.CurrentRows)
             T_questionDataGridView.DataSource = dv
             'filter Ans
             'idQuestFocus = T_questionDataGridView.Rows(0).Cells(0).Value
 
             'Dim dvAns As DataView
-            'dvAns = New DataView(db_question.t_answer, "id_quest = '" & idQuestFocus & "'", "id_ans Desc", DataViewRowState.CurrentRows)
+            'dvAns = New DataView(tableAnswer, "id_subject = '" & idSubjectFocus & "'", "id_ans Desc", DataViewRowState.CurrentRows)
             'T_answerDataGridView.DataSource = dvAns
 
             ' filter Subject
@@ -419,14 +449,22 @@ Public Class fmAdd
 
     Private Sub T_subjectDataGridView_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles T_subjectDataGridView.UserDeletingRow
         cmdUpdateDB.Visible = True
-        For Each Item As DataRowView In dv
-            Dim id As String = Item(0).ToString()
-            Dim dvAnss = New DataView(db_question.t_answer, "id_quest = '" & id & "'", "id_ans Desc", DataViewRowState.CurrentRows)
-            deleteAns(dvAnss)
-            Item.Delete()
 
-        Next
-        loadToDGV()
+        Try
+            For Each Item As DataRowView In dv
+                Dim id As String = Item(0).ToString()
+                Dim dvAnss = New DataView(tableAnswer, "id_quest = '" & id & "'", "id_ans Desc", DataViewRowState.CurrentRows)
+                deleteAns(dvAnss)
+                Item.Delete()
+            Next
+            '   loadToDGV()
+        Catch ex As Exception
+
+            MessageBox.Show("Không thể xóa môn học vì dữ liệu điểm số của sinh viên đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        End Try
+       
+
     End Sub
 
     Private Function filterByContent(ByVal content As String, ByVal table As DataTable, ByVal filter As String) As DataView
@@ -442,13 +480,14 @@ Public Class fmAdd
                 T_subjectDataGridView.DataSource = dataView
                 Dim id As String = dataView.Item(0).Item(0).ToString()
                 'filter question
-                Dim dv As New DataView(db_question.t_question, "id_subject = '" & id & "'", "id_quest Desc", DataViewRowState.CurrentRows)
+                Dim dv As New DataView(tableQuestion, "id_subject = '" & id & "'", "id_quest Desc", DataViewRowState.CurrentRows)
                 T_questionDataGridView.DataSource = dv
             Else
-                MsgBox("Không tìm thấy thông tin vừa nhập")
+
+                MessageBox.Show("Không tìm thấy thông tin vừa nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
-            MsgBox("Không tìm thấy thông tin vừa nhập")
+            MessageBox.Show("Không tìm thấy thông tin vừa nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
     Private Sub filterQuestion(ByVal dataView As DataView)
@@ -457,11 +496,11 @@ Public Class fmAdd
                 T_questionDataGridView.DataSource = dataView
                 Dim id As String = dataView.Item(0).Item(0).ToString()
                 'filter answer
-                Dim dv As New DataView(db_question.t_answer, "id_quest = '" & id & "'", "id_ans Desc", DataViewRowState.CurrentRows)
+                Dim dv As New DataView(tableAnswer, "id_quest = '" & id & "'", "id_ans Desc", DataViewRowState.CurrentRows)
                 T_answerDataGridView.DataSource = dv
                 'filter subject
                 id = dataView.Item(0).Item(2).ToString()
-                Dim dvS As New DataView(db_question.t_subject, "id_subject = '" & id & "'", "", DataViewRowState.CurrentRows)
+                Dim dvS As New DataView(tableSubject, "id_subject = '" & id & "'", "", DataViewRowState.CurrentRows)
                 T_subjectDataGridView.DataSource = dvS
             Else
                 MsgBox("Không tìm thấy thông tin vừa nhập")
@@ -477,11 +516,11 @@ Public Class fmAdd
                 T_answerDataGridView.DataSource = dataView
                 Dim id As String = dataView.Item(0).Item(2).ToString()
                 'filter question
-                Dim dv As New DataView(db_question.t_question, "id_quest = '" & id & "'", "id_quest Desc", DataViewRowState.CurrentRows)
+                Dim dv As New DataView(tableQuestion, "id_quest = '" & id & "'", "id_quest Desc", DataViewRowState.CurrentRows)
                 T_questionDataGridView.DataSource = dv
                 'Filter subject
                 id = dv.Item(0).Item(2).ToString()
-                Dim dvS As New DataView(db_question.t_subject, "id_subject = '" & id & "'", "", DataViewRowState.CurrentRows)
+                Dim dvS As New DataView(tableSubject, "id_subject = '" & id & "'", "", DataViewRowState.CurrentRows)
                 T_subjectDataGridView.DataSource = dvS
             Else
                 MsgBox("Không tìm thấy thông tin vừa nhập")
@@ -492,14 +531,8 @@ Public Class fmAdd
         End Try
     End Sub
 
-    Private Sub T_questionDataGridView_ContextMenuStripChanged(sender As Object, e As EventArgs) Handles T_questionDataGridView.ContextMenuStripChanged
-
-    End Sub
-
-    Private Sub T_questionDataGridView_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.RowEnter
-      
-
-    End Sub
+    
+   
     Private listSelect As List(Of Long)
     Dim dvAns As DataView
 
@@ -511,16 +544,16 @@ Public Class fmAdd
             idQuestFocus = T_questionDataGridView.Rows(e.RowIndex).Cells(0).Value
             Dim subject As String = T_questionDataGridView.Rows(e.RowIndex).Cells(2).Value.ToString()
             Dim dvQuest As DataView
-            dvQuest = New DataView(db_question.t_question, "id_quest = '" & idQuestFocus & "'", "id_quest Desc", DataViewRowState.CurrentRows)
+            dvQuest = New DataView(tableQuestion, "id_quest = '" & idQuestFocus & "'", "id_quest Desc", DataViewRowState.CurrentRows)
             T_questionDataGridView.DataSource = dvQuest
             'filter Ans
 
-            dvAns = New DataView(db_question.t_answer, "id_quest = '" & idQuestFocus & "'", "id_ans Desc", DataViewRowState.CurrentRows)
+            dvAns = New DataView(tableAnswer, "id_quest = '" & idQuestFocus & "'", "id_ans Desc", DataViewRowState.CurrentRows)
 
             T_answerDataGridView.DataSource = dvAns
 
             ' filter Subject
-            Dim dvSub As New DataView(db_question.t_subject, "id_subject = '" & subject & "'", "id_subject Desc", DataViewRowState.CurrentRows)
+            Dim dvSub As New DataView(tableSubject, "id_subject = '" & subject & "'", "id_subject Desc", DataViewRowState.CurrentRows)
             T_subjectDataGridView.DataSource = dvSub
 
 
@@ -529,9 +562,7 @@ Public Class fmAdd
      
     End Sub
 
-    Private Sub T_questionDataGridView_RowLeave(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.RowLeave
-       
-    End Sub
+   
 
     Private Sub T_questionDataGridView_RowValidating(sender As Object, e As DataGridViewCellCancelEventArgs) Handles T_questionDataGridView.RowValidating
         '  MsgBox("ID vua xoa la : " & T_questionDataGridView.RowCount)
@@ -545,7 +576,7 @@ Public Class fmAdd
     Private Sub T_questionDataGridView_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles T_questionDataGridView.UserDeletedRow
         'MsgBox("ID vua xoa la : " & idQuestFocus)
         deleteAns(dvAns)
-        loadToDGV()
+        ' loadToDGV()
         cmdUpdateDB.Visible = True
     End Sub
     
@@ -566,11 +597,11 @@ Public Class fmAdd
         Dim type As String
         type = cbbType.SelectedItem
         If (Equals("Môn học", type)) Then
-            filterSubject(filterByContent(data, db_question.t_subject, "content_subject"))
+            filterSubject(filterByContent(data, tableSubject, "content_subject"))
         ElseIf (Equals("Câu hỏi", type)) Then
-            filterQuestion(filterByContent(data, db_question.t_question, "content_quest"))
+            filterQuestion(filterByContent(data, tableQuestion, "content_quest"))
         Else
-            filterAnswer(filterByContent(data, db_question.t_answer, "content_ans"))
+            filterAnswer(filterByContent(data, tableAnswer, "content_ans"))
 
 
         End If
@@ -583,7 +614,9 @@ Public Class fmAdd
     Private Sub setDataForDataCollection(ByVal table As DataTable)
 
         For Each row As DataRow In table.Rows
+
             dataCollection.Add(row(1).ToString())
+
         Next
 
     End Sub
@@ -602,4 +635,11 @@ Public Class fmAdd
 
         'End If
     End Sub
+
+  
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+
+    End Sub
+
+  
 End Class

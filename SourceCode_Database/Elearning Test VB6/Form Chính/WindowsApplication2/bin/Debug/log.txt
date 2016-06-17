@@ -1,2 +1,4 @@
 MMT ID question false is 355-Cau 13  Mạng dạng vòng tròn (Ring) là gì? 
 MMT ID question false is 355-Cau 7  Mạng dạng vòng tròn (Ring) là gì? 
+MMT ID question false is 320-Cau 7 Tầng liên kết dữ liệu có thể thực hiện chức năng nào sau đây?
+MMT ID question false is 355-Cau 16  Mạng dạng vòng tròn (Ring) là gì? 

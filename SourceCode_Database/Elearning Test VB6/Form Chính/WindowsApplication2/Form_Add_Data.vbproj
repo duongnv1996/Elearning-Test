@@ -93,6 +93,14 @@
     <Compile Include="Admin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ICheckBox.vb" />
+    <Compile Include="IClickSubject.vb" />
+    <Compile Include="PanelSubject.Designer.vb">
+      <DependentUpon>PanelSubject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PanelSubject.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="subjectItem.vb" />
     <Compile Include="db_questionDataSet.vb">
       <DependentUpon>db_questionDataSet.xsd</DependentUpon>
@@ -199,6 +207,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelSubject.resx">
+      <DependentUpon>PanelSubject.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="studentManager.resx">
       <DependentUpon>studentManager.vb</DependentUpon>
@@ -562,7 +573,18 @@
   <ItemGroup>
     <Content Include="Add Property-96.png" />
     <Content Include="EPU_Logo_Footer.png" />
-    <None Include="Resources\activity_login.png" />
+    <Content Include="My Project\bell %281%29.png" />
+    <Content Include="My Project\belloff.png" />
+    <None Include="Resources\bellringing.png" />
+    <None Include="Resources\bellring.png" />
+    <None Include="Resources\belloff1.png" />
+    <None Include="Resources\backgroung.png" />
+    <Content Include="Resources\bell %281%29.png" />
+    <None Include="Resources\bell %281%291.png" />
+    <None Include="Resources\bell %282%29.png" />
+    <None Include="Resources\bell-ring.png" />
+    <Content Include="Resources\belloff.png" />
+    <None Include="Resources\image1.JPG" />
     <None Include="Resources\it.jpg" />
     <None Include="Resources\cfgc.jpg.png" />
   </ItemGroup>

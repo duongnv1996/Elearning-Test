@@ -12,17 +12,38 @@ Public Class fmstudentManager
     Dim id As String
 
 
+    Dim sqlMark As String = "SELECT * FROM t_mark"
+    Dim sqlUser As String = "SELECT * FROM t_user"
+    Dim adapterMark As New SqlDataAdapter(sqlMark, con)
+    Dim adapterUser As New SqlDataAdapter(sqlUser, con)
+    Dim ds As New db_question
+
+    Dim tableMark As DataTable
+    Dim tableUser As DataTable
+    Private Sub loadDGV()
+
+        loadFromAdapter(adapterMark, "t_mark", tableMark)
+        loadFromAdapter(adapterUser, "t_user", tableUser)
+        T_userDataGridView.DataSource = tableUser
+        T_markDataGridView.DataSource = tableMark
+
+    End Sub
+    Private Sub loadFromAdapter(ByVal adapter As SqlDataAdapter, ByVal name As String, ByRef table As DataTable)
+
+        adapter.Fill(ds, name)
+        table = ds.Tables(name)
+    End Sub
     Private Sub studentManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Db_question.t_mark' table. You can move, or remove it, as needed.
-        Me.T_markTableAdapter.Fill(Me.Db_question.t_mark)
-        'TODO: This line of code loads data into the 'Db_question.t_user' table. You can move, or remove it, as needed.
-        Me.T_userTableAdapter.Fill(Me.Db_question.t_user)
-        For Each row As DataRow In Db_question.t_user.Rows
+        '  con.Open()
+        loadDGV()
+        ' con.Close()
+
+        For Each row As DataRow In tableUser.Rows
             source.Add(row(0).ToString())
             source.Add(row(2).ToString())
             source.Add(row(3).ToString())
         Next
-        For Each row As DataRow In Db_question.t_mark.Rows
+        For Each row As DataRow In tableMark.Rows
             source.Add(row(1).ToString())
             source.Add(row(2).ToString())
 
@@ -45,34 +66,36 @@ Public Class fmstudentManager
 
 
             'filter question
-            Dim dv As New DataView(Db_question.t_user, "msv = '" & data & "'" & " or name = '" & data & "'", "", DataViewRowState.CurrentRows)
+            Dim dv As New DataView(tableUser, "msv = '" & data & "'" & " or name = '" & data & "'", "", DataViewRowState.CurrentRows)
             If (dv.Count > 0) Then
                 T_userDataGridView.DataSource = dv
                 isSuccessfull = True
 
             End If
 
-            Dim dv2 As New DataView(Db_question.t_mark, "msv = '" & data & "'" & " or id_subject = '" & data & "'", "", DataViewRowState.CurrentRows)
+            Dim dv2 As New DataView(tableMark, "msv = '" & data & "'" & " or id_subject = '" & data & "'", "", DataViewRowState.CurrentRows)
             If (dv2.Count > 0) Then
                 T_markDataGridView.DataSource = dv2
                 isSuccessfull = True
-            Else
-                isSuccessfull = False
             End If
             If (isSuccessfull <> True) Then
-                MsgBox("Không tìm thấy thông tin vừa nhập")
+
+                MessageBox.Show("Không tìm thấy thông tin vừa nhập", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
-            MsgBox("Không tìm thấy thông tin vừa nhập")
+            MessageBox.Show("Không tìm thấy thông tin vừa nhập", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
             loadToDGV()
 
         End Try
     End Sub
 
-    Private Sub T_userBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles T_userBindingNavigatorSaveItem.Click
+    Private Sub T_userBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.T_userBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.Db_question)
+        'adapterMark.Update(tableMark)
+        'adapterUser.Update(tableUser)
+
     End Sub
 
     Private Sub cmdSearch_Click(sender As Object, e As EventArgs) Handles cmdSearch.Click
@@ -87,18 +110,18 @@ Public Class fmstudentManager
         If (e.RowIndex < count - 1) Then
             id = T_userDataGridView.Rows(e.RowIndex).Cells(0).Value
             Dim dv As DataView
-            dv = New DataView(Db_question.t_user, "msv = '" & id & "'", "", DataViewRowState.CurrentRows)
+            dv = New DataView(tableUser, "msv = '" & id & "'", "", DataViewRowState.CurrentRows)
             T_userDataGridView.DataSource = dv
             'filter Ans
             Dim dvAns As DataView
-            dvAns = New DataView(Db_question.t_mark, "msv = '" & id & "'", "", DataViewRowState.CurrentRows)
+            dvAns = New DataView(tableMark, "msv = '" & id & "'", "", DataViewRowState.CurrentRows)
             T_markDataGridView.DataSource = dvAns
             cmdBack.Visible = True
         End If
     End Sub
     Private Sub loadToDGV()
-        T_userDataGridView.DataSource = Db_question.t_user
-        T_markDataGridView.DataSource = Db_question.t_mark
+        T_userDataGridView.DataSource = tableUser
+        T_markDataGridView.DataSource = tableMark
 
     End Sub
     Private Sub cmdBack_Click(sender As Object, e As EventArgs) Handles cmdBack.Click
@@ -131,7 +154,7 @@ Public Class fmstudentManager
         xlWorkSheet.Cells(1, 5).Value = "ĐIỂM"
         Dim k As Integer = 2
         For i = 0 To ds.Tables(0).Rows.Count - 1
-            For j = 0 To ds.Tables(0).Columns.Count - 1           
+            For j = 0 To ds.Tables(0).Columns.Count - 1
                 xlWorkSheet.Cells(k, j + 1) = _
                ds.Tables(0).Rows(i).Item(j)
             Next
@@ -144,7 +167,8 @@ Public Class fmstudentManager
         releaseObject(xlWorkBook)
         releaseObject(xlWorkSheet)
         cnn.Close()
-        MsgBox("Xuất file Excel thành công. Xem file tại địa chỉ C:\mark.xlsx")
+
+        MessageBox.Show("Xuất file Excel thành công. Xem file tại địa chỉ D:\mark.xlsx", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     Private Sub releaseObject(ByVal obj As Object)
         Try
@@ -155,5 +179,14 @@ Public Class fmstudentManager
         Finally
             GC.Collect()
         End Try
+    End Sub
+
+    Private Sub BindingNavigatorAddNewItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Me.TableAdapterManager.UpdateAll(ds)
+        MessageBox.Show("Lưu vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class

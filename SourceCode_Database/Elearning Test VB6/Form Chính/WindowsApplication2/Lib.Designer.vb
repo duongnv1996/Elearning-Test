@@ -44,10 +44,6 @@ Partial Class fmAdd
         Me.T_questionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.db_question = New WindowsApplication2.db_question()
         Me.T_answerDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.T_answerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.T_subjectDataGridView = New System.Windows.Forms.DataGridView()
         Me.T_subjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -59,11 +55,6 @@ Partial Class fmAdd
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtIDSub = New System.Windows.Forms.TextBox()
         Me.cmdUpdateDB = New System.Windows.Forms.Button()
-        Me.DbquestionDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.T_questionTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_questionTableAdapter()
-        Me.TableAdapterManager = New WindowsApplication2.db_questionTableAdapters.TableAdapterManager()
-        Me.T_answerTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter()
-        Me.T_subjectTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_subjectTableAdapter()
         Me.cmdBack = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -74,11 +65,21 @@ Partial Class fmAdd
         Me.Label12 = New System.Windows.Forms.Label()
         Me.cmdFind = New System.Windows.Forms.Button()
         Me.cbbType = New System.Windows.Forms.ComboBox()
+        Me.DbquestionDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.T_questionTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_questionTableAdapter()
+        Me.TableAdapterManager = New WindowsApplication2.db_questionTableAdapters.TableAdapterManager()
+        Me.T_answerTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter()
+        Me.T_subjectTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_subjectTableAdapter()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.true_ans = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.number_quest = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.timer = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.date_test = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Db_question1 = New WindowsApplication2.db_question()
         CType(Me.T_questionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.T_questionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.db_question, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,15 +88,16 @@ Partial Class fmAdd
         CType(Me.T_subjectDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.T_subjectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbquestionDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Db_question1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmdRead
         '
         Me.cmdRead.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdRead.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.cmdRead.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.cmdRead.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdRead.Location = New System.Drawing.Point(1124, 15)
-        Me.cmdRead.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdRead.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdRead.Name = "cmdRead"
         Me.cmdRead.Size = New System.Drawing.Size(100, 28)
         Me.cmdRead.TabIndex = 0
@@ -106,7 +108,7 @@ Partial Class fmAdd
         '
         Me.txtFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFile.Location = New System.Drawing.Point(671, 17)
-        Me.txtFile.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFile.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFile.Name = "txtFile"
         Me.txtFile.Size = New System.Drawing.Size(433, 22)
         Me.txtFile.TabIndex = 1
@@ -115,22 +117,22 @@ Partial Class fmAdd
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
-        Me.Label1.Location = New System.Drawing.Point(539, 21)
+        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label1.Location = New System.Drawing.Point(508, 24)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 16)
+        Me.Label1.Size = New System.Drawing.Size(113, 19)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Đường dẫn File"
         '
         'lblTitle1
         '
         Me.lblTitle1.AutoSize = True
-        Me.lblTitle1.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.lblTitle1.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.lblTitle1.Location = New System.Drawing.Point(253, 177)
         Me.lblTitle1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTitle1.Name = "lblTitle1"
-        Me.lblTitle1.Size = New System.Drawing.Size(64, 16)
+        Me.lblTitle1.Size = New System.Drawing.Size(76, 19)
         Me.lblTitle1.TabIndex = 3
         Me.lblTitle1.Text = "CÂU HỎI"
         '
@@ -146,7 +148,7 @@ Partial Class fmAdd
         Me.lstQuestion.HorizontalExtent = 100
         Me.lstQuestion.HorizontalScrollbar = True
         Me.lstQuestion.Location = New System.Drawing.Point(21, 197)
-        Me.lstQuestion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstQuestion.Margin = New System.Windows.Forms.Padding(4)
         Me.lstQuestion.Name = "lstQuestion"
         Me.lstQuestion.ScrollAlwaysVisible = True
         Me.lstQuestion.Size = New System.Drawing.Size(480, 498)
@@ -159,11 +161,11 @@ Partial Class fmAdd
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label2.Location = New System.Drawing.Point(16, 80)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(147, 16)
+        Me.Label2.Size = New System.Drawing.Size(174, 19)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Ký tự phân biệt câu hỏi :"
         '
@@ -171,8 +173,8 @@ Partial Class fmAdd
         '
         Me.txtCQuest.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCQuest.Location = New System.Drawing.Point(257, 76)
-        Me.txtCQuest.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCQuest.Location = New System.Drawing.Point(296, 77)
+        Me.txtCQuest.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCQuest.Name = "txtCQuest"
         Me.txtCQuest.Size = New System.Drawing.Size(151, 22)
         Me.txtCQuest.TabIndex = 6
@@ -181,11 +183,11 @@ Partial Class fmAdd
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label4.Location = New System.Drawing.Point(17, 113)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(194, 16)
+        Me.Label4.Size = New System.Drawing.Size(230, 19)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Ký tự phân biệt câu trả lời đúng :"
         '
@@ -193,8 +195,8 @@ Partial Class fmAdd
         '
         Me.txtTrueAns.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtTrueAns.Location = New System.Drawing.Point(257, 108)
-        Me.txtTrueAns.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtTrueAns.Location = New System.Drawing.Point(296, 109)
+        Me.txtTrueAns.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTrueAns.Name = "txtTrueAns"
         Me.txtTrueAns.Size = New System.Drawing.Size(151, 22)
         Me.txtTrueAns.TabIndex = 10
@@ -203,11 +205,11 @@ Partial Class fmAdd
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label3.Location = New System.Drawing.Point(17, 21)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 16)
+        Me.Label3.Size = New System.Drawing.Size(102, 19)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "Tên môn học:"
         '
@@ -215,8 +217,8 @@ Partial Class fmAdd
         '
         Me.txtMonHoc.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtMonHoc.Location = New System.Drawing.Point(257, 12)
-        Me.txtMonHoc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtMonHoc.Location = New System.Drawing.Point(296, 13)
+        Me.txtMonHoc.Margin = New System.Windows.Forms.Padding(4)
         Me.txtMonHoc.Name = "txtMonHoc"
         Me.txtMonHoc.Size = New System.Drawing.Size(151, 22)
         Me.txtMonHoc.TabIndex = 12
@@ -234,7 +236,7 @@ Partial Class fmAdd
         Me.T_questionDataGridView.DataSource = Me.T_questionBindingSource
         Me.T_questionDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.T_questionDataGridView.Location = New System.Drawing.Point(643, 320)
-        Me.T_questionDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.T_questionDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.T_questionDataGridView.Name = "T_questionDataGridView"
         Me.T_questionDataGridView.Size = New System.Drawing.Size(720, 176)
         Me.T_questionDataGridView.TabIndex = 13
@@ -278,7 +280,7 @@ Partial Class fmAdd
         Me.T_answerDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.T_answerDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.T_answerDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.T_answerDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8})
+        Me.T_answerDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn7, Me.true_ans})
         Me.T_answerDataGridView.DataSource = Me.T_answerBindingSource
         Me.T_answerDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.T_answerDataGridView.Location = New System.Drawing.Point(643, 517)
@@ -288,32 +290,6 @@ Partial Class fmAdd
         Me.T_answerDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.T_answerDataGridView.Size = New System.Drawing.Size(720, 209)
         Me.T_answerDataGridView.TabIndex = 13
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "id_ans"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "MÃ CÂU TRẢ LỜI"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "content_ans"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "NỘI DUNG"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "id_quest"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "MÃ CÂU HỎI"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "true_ans"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "LÀ ĐÁP ÁN ĐÚNG(0/1)"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ToolTipText = "a"
         '
         'T_answerBindingSource
         '
@@ -333,7 +309,7 @@ Partial Class fmAdd
         Me.T_subjectDataGridView.DataSource = Me.T_subjectBindingSource
         Me.T_subjectDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.T_subjectDataGridView.Location = New System.Drawing.Point(644, 197)
-        Me.T_subjectDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.T_subjectDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.T_subjectDataGridView.Name = "T_subjectDataGridView"
         Me.T_subjectDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.T_subjectDataGridView.Size = New System.Drawing.Size(719, 92)
@@ -349,11 +325,11 @@ Partial Class fmAdd
         Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label5.Location = New System.Drawing.Point(920, 300)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(83, 16)
+        Me.Label5.Size = New System.Drawing.Size(99, 19)
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "Bảng Câu hỏi"
         '
@@ -362,11 +338,11 @@ Partial Class fmAdd
         Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label6.Location = New System.Drawing.Point(920, 177)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(90, 16)
+        Me.Label6.Size = New System.Drawing.Size(106, 19)
         Me.Label6.TabIndex = 15
         Me.Label6.Text = "Bảng môn học"
         '
@@ -375,19 +351,19 @@ Partial Class fmAdd
         Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
-        Me.Label7.Location = New System.Drawing.Point(920, 500)
+        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label7.Location = New System.Drawing.Point(920, 497)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(96, 16)
+        Me.Label7.Size = New System.Drawing.Size(115, 19)
         Me.Label7.TabIndex = 16
         Me.Label7.Text = "Bảng câu trả lời"
         '
         'btnAddDB
         '
-        Me.btnAddDB.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.btnAddDB.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.btnAddDB.Location = New System.Drawing.Point(512, 342)
-        Me.btnAddDB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnAddDB.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAddDB.Name = "btnAddDB"
         Me.btnAddDB.Size = New System.Drawing.Size(123, 73)
         Me.btnAddDB.TabIndex = 17
@@ -398,9 +374,9 @@ Partial Class fmAdd
         '
         Me.cmdFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdFile.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.cmdFile.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.cmdFile.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdFile.Location = New System.Drawing.Point(1263, 15)
-        Me.cmdFile.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdFile.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdFile.Name = "cmdFile"
         Me.cmdFile.Size = New System.Drawing.Size(100, 28)
         Me.cmdFile.TabIndex = 18
@@ -410,11 +386,11 @@ Partial Class fmAdd
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label8.Location = New System.Drawing.Point(17, 53)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(80, 16)
+        Me.Label8.Size = New System.Drawing.Size(94, 19)
         Me.Label8.TabIndex = 20
         Me.Label8.Text = "ID môn học:"
         '
@@ -422,8 +398,8 @@ Partial Class fmAdd
         '
         Me.txtIDSub.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtIDSub.Location = New System.Drawing.Point(257, 44)
-        Me.txtIDSub.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtIDSub.Location = New System.Drawing.Point(296, 45)
+        Me.txtIDSub.Margin = New System.Windows.Forms.Padding(4)
         Me.txtIDSub.Name = "txtIDSub"
         Me.txtIDSub.Size = New System.Drawing.Size(151, 22)
         Me.txtIDSub.TabIndex = 19
@@ -431,9 +407,9 @@ Partial Class fmAdd
         'cmdUpdateDB
         '
         Me.cmdUpdateDB.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.cmdUpdateDB.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.cmdUpdateDB.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdUpdateDB.Location = New System.Drawing.Point(512, 423)
-        Me.cmdUpdateDB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdUpdateDB.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdUpdateDB.Name = "cmdUpdateDB"
         Me.cmdUpdateDB.Size = New System.Drawing.Size(123, 73)
         Me.cmdUpdateDB.TabIndex = 21
@@ -441,38 +417,11 @@ Partial Class fmAdd
         Me.cmdUpdateDB.UseVisualStyleBackColor = True
         Me.cmdUpdateDB.Visible = False
         '
-        'DbquestionDataSetBindingSource
-        '
-        Me.DbquestionDataSetBindingSource.DataSource = Me.db_question
-        Me.DbquestionDataSetBindingSource.Position = 0
-        '
-        'T_questionTableAdapter
-        '
-        Me.T_questionTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.t_answerTableAdapter = Me.T_answerTableAdapter
-        Me.TableAdapterManager.t_markTableAdapter = Nothing
-        Me.TableAdapterManager.t_questionTableAdapter = Me.T_questionTableAdapter
-        Me.TableAdapterManager.t_subjectTableAdapter = Me.T_subjectTableAdapter
-        Me.TableAdapterManager.t_userTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = WindowsApplication2.db_questionTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'T_answerTableAdapter
-        '
-        Me.T_answerTableAdapter.ClearBeforeFill = True
-        '
-        'T_subjectTableAdapter
-        '
-        Me.T_subjectTableAdapter.ClearBeforeFill = True
-        '
         'cmdBack
         '
-        Me.cmdBack.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.cmdBack.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdBack.Location = New System.Drawing.Point(512, 505)
-        Me.cmdBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdBack.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdBack.Name = "cmdBack"
         Me.cmdBack.Size = New System.Drawing.Size(123, 73)
         Me.cmdBack.TabIndex = 22
@@ -539,11 +488,11 @@ Partial Class fmAdd
         '
         Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
-        Me.Label12.Location = New System.Drawing.Point(540, 53)
+        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label12.Location = New System.Drawing.Point(509, 56)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(105, 16)
+        Me.Label12.Size = New System.Drawing.Size(125, 19)
         Me.Label12.TabIndex = 27
         Me.Label12.Text = "Tìm kiếm dữ liệu"
         '
@@ -551,9 +500,9 @@ Partial Class fmAdd
         '
         Me.cmdFind.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdFind.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.cmdFind.Font = New System.Drawing.Font("Times New Roman", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.cmdFind.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.cmdFind.Location = New System.Drawing.Point(1263, 50)
-        Me.cmdFind.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdFind.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdFind.Name = "cmdFind"
         Me.cmdFind.Size = New System.Drawing.Size(100, 28)
         Me.cmdFind.TabIndex = 29
@@ -572,6 +521,57 @@ Partial Class fmAdd
         Me.cbbType.TabIndex = 31
         Me.cbbType.Text = "Môn học"
         '
+        'DbquestionDataSetBindingSource
+        '
+        Me.DbquestionDataSetBindingSource.DataSource = Me.db_question
+        Me.DbquestionDataSetBindingSource.Position = 0
+        '
+        'T_questionTableAdapter
+        '
+        Me.T_questionTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.t_answerTableAdapter = Me.T_answerTableAdapter
+        Me.TableAdapterManager.t_markTableAdapter = Nothing
+        Me.TableAdapterManager.t_questionTableAdapter = Me.T_questionTableAdapter
+        Me.TableAdapterManager.t_subjectTableAdapter = Me.T_subjectTableAdapter
+        Me.TableAdapterManager.t_userTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = WindowsApplication2.db_questionTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'T_answerTableAdapter
+        '
+        Me.T_answerTableAdapter.ClearBeforeFill = True
+        '
+        'T_subjectTableAdapter
+        '
+        Me.T_subjectTableAdapter.ClearBeforeFill = True
+        '
+        'Column1
+        '
+        Me.Column1.DataPropertyName = "id_ans"
+        Me.Column1.HeaderText = "MÃ CÂU TRẢ LỜI"
+        Me.Column1.Name = "Column1"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "content_ans"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "NỘI DUNG"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "id_quest"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "MÃ CÂU HỎI"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'true_ans
+        '
+        Me.true_ans.DataPropertyName = "true_ans"
+        Me.true_ans.HeaderText = "CÂU TRẢ LỜI ĐÚNG (0/1)"
+        Me.true_ans.Name = "true_ans"
+        '
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "id_subject"
@@ -587,20 +587,25 @@ Partial Class fmAdd
         'number_quest
         '
         Me.number_quest.DataPropertyName = "number_quest"
-        Me.number_quest.HeaderText = "number_quest"
+        Me.number_quest.HeaderText = "SỐ LƯỢNG CÂU HỎI/ BÀI THI"
         Me.number_quest.Name = "number_quest"
         '
         'timer
         '
         Me.timer.DataPropertyName = "timer"
-        Me.timer.HeaderText = "timer"
+        Me.timer.HeaderText = "THỜI GIAN LÀM BÀI"
         Me.timer.Name = "timer"
         '
         'date_test
         '
         Me.date_test.DataPropertyName = "date_test"
-        Me.date_test.HeaderText = "date_test"
+        Me.date_test.HeaderText = "NGÀY THI"
         Me.date_test.Name = "date_test"
+        '
+        'Db_question1
+        '
+        Me.Db_question1.DataSetName = "db_question"
+        Me.Db_question1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'fmAdd
         '
@@ -638,7 +643,7 @@ Partial Class fmAdd
         Me.Controls.Add(Me.txtFile)
         Me.Controls.Add(Me.cmdRead)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "fmAdd"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Thêm Dữ Liệu"
@@ -650,6 +655,7 @@ Partial Class fmAdd
         CType(Me.T_subjectDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.T_subjectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbquestionDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Db_question1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -687,10 +693,6 @@ Partial Class fmAdd
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtIDSub As System.Windows.Forms.TextBox
     Friend WithEvents cmdUpdateDB As System.Windows.Forms.Button
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmdBack As System.Windows.Forms.Button
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -704,10 +706,15 @@ Partial Class fmAdd
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents cmdFind As System.Windows.Forms.Button
     Friend WithEvents cbbType As System.Windows.Forms.ComboBox
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents true_ans As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents number_quest As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents timer As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents date_test As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Db_question1 As WindowsApplication2.db_question
 
 End Class

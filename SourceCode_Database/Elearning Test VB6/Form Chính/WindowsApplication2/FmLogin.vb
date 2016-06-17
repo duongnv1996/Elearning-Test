@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class FmLogin
     Private _user As New User
-    Private conn = "Data Source=DESKTOP-T17IS19\NHUNGMIN;Initial Catalog=db_question;Integrated Security=True;MultipleActiveResultSets=True"
+    Private conn = "Data Source=MAYTINH-JRUTQDS;Initial Catalog=db_question;Integrated Security=True;MultipleActiveResultSets=True"
     Private Sub btndn_Click(sender As Object, e As EventArgs) Handles btndn.Click
         If (txtuser.Text = "") Then
             MessageBox.Show("Bạn hãy nhập vào tên tài khoản")
@@ -18,7 +18,7 @@ Public Class FmLogin
                         Admin.Show()
                         Me.Hide()
                     Else
-                        'MessageBox.Show("Bạn đã đăng nhập thành công")
+                        MessageBox.Show("Bạn đã đăng nhập thành công")
                         Dim FormSubject As New FmSubject
                         FormSubject.user = _user
                         FormSubject.Show()
@@ -80,7 +80,7 @@ Public Class FmLogin
         End Try
     End Function
 
-    Private Sub txtuser_TextChanged(sender As Object, e As EventArgs) Handles txtuser.TextChanged
+    Private Sub FmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
