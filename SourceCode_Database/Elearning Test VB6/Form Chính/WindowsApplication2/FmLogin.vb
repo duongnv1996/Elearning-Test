@@ -18,7 +18,7 @@ Public Class FmLogin
                         Admin.Show()
                         Me.Hide()
                     Else
-                        MessageBox.Show("Bạn đã đăng nhập thành công")
+
                         Dim FormSubject As New FmSubject
                         FormSubject.user = _user
                         FormSubject.Show()
@@ -29,7 +29,7 @@ Public Class FmLogin
                 Else
 
                     '//ngược lại tức là dữ liệu lấy từ ketnoi không có hoặc một trong tài khoản hoặc user đã sai thì thông báo
-                    MessageBox.Show("Lỗi đăng nhập!")
+                    MessageBox.Show("Tên tài khoản hoặc mật khẩu sai. Vui lòng kiểm tra lại!")
                     txtpass.Text = ""
                     txtpass.Focus()
                 End If
@@ -81,6 +81,10 @@ Public Class FmLogin
     End Function
 
     Private Sub FmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 End Class

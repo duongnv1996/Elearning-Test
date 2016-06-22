@@ -267,7 +267,6 @@ Public Class fmAdd
                 Dim queryString As String = "select * from t_subject where id_subject=@idSubject"
                 Dim sqlSelect As New SqlCommand(queryString, con)
                 sqlSelect.Parameters.AddWithValue("@idSubject", idSubject)
-
                 Dim isExist As Boolean = False
                 Using reader As SqlDataReader = sqlSelect.ExecuteReader()
                     If (reader.HasRows) Then
@@ -277,7 +276,7 @@ Public Class fmAdd
 
                 If isExist <> True Then
 
-                    Dim sql As New SqlCommand("insert into t_subject (id_subject,content_subject) values (N'" & idSubject & "',N'" & mSubject & "')", con)
+                    Dim sql As New SqlCommand("insert into t_subject (id_subject,content_subject) values (N'" & idSubject & "',N'" & mSubject.Trim & "')", con)
 
                     sql.ExecuteNonQuery()
                     'Them vao bang question
@@ -288,7 +287,7 @@ Public Class fmAdd
                         For Each item In lstQuestion.Items
                             If (item.ToString.Equals("") <> True) Then
                                 If (item.ToString.Contains(cQuest)) Then
-                                    Dim sqlInsertQ As New SqlCommand("insert into t_question (content_quest,id_subject) values (N'" & item.ToString & "',N'" & idSubject & "')SELECT SCOPE_IDENTITY();", con)
+                                    Dim sqlInsertQ As New SqlCommand("insert into t_question (content_quest,id_subject) values (N'" & item.ToString.Trim & "',N'" & idSubject & "')SELECT SCOPE_IDENTITY();", con)
                                     idQ = CInt(sqlInsertQ.ExecuteScalar())
                                     ' Cau tra loi dung
 
@@ -325,7 +324,7 @@ Public Class fmAdd
                 con.Close()
             Catch ex As Exception
 
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm . Vui lòng kiểm tra lại định dạng file Excel ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm . Vui lòng kiểm tra lại định dạng file Excel " & ex.ToString, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 con.Close()
             End Try
 
@@ -401,6 +400,10 @@ Public Class fmAdd
 
 
     End Sub
+
+    Private Sub T_questionDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.CellContentDoubleClick
+       
+    End Sub
     Private Sub T_questionDataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.CellValueChanged
         cmdUpdateDB.Visible = True
 
@@ -467,7 +470,7 @@ Public Class fmAdd
     End Sub
 
     Private Function filterByContent(ByVal content As String, ByVal table As DataTable, ByVal filter As String) As DataView
-        Dim dvAnss = New DataView(table, "" & filter & " = '" & content & "'", "", DataViewRowState.CurrentRows)
+        Dim dvAnss = New DataView(table, "" & filter & " =  '" & content & "'", "", DataViewRowState.CurrentRows)
         Return dvAnss
 
     End Function
@@ -641,4 +644,9 @@ Public Class fmAdd
     End Sub
 
   
+    Private Sub T_questionDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles T_questionDataGridView.CellContentClick
+        ' MsgBox(T_questionDataGridView.Rows(e.RowIndex).ToString)
+       
+
+    End Sub
 End Class

@@ -44,8 +44,17 @@ Partial Class fmAdd
         Me.T_questionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.db_question = New WindowsApplication2.db_question()
         Me.T_answerDataGridView = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.true_ans = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.T_answerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.T_subjectDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.number_quest = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.timer = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.date_test = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.T_subjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -70,15 +79,6 @@ Partial Class fmAdd
         Me.TableAdapterManager = New WindowsApplication2.db_questionTableAdapters.TableAdapterManager()
         Me.T_answerTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_answerTableAdapter()
         Me.T_subjectTableAdapter = New WindowsApplication2.db_questionTableAdapters.t_subjectTableAdapter()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.true_ans = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.number_quest = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.timer = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.date_test = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Db_question1 = New WindowsApplication2.db_question()
         CType(Me.T_questionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.T_questionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -291,6 +291,30 @@ Partial Class fmAdd
         Me.T_answerDataGridView.Size = New System.Drawing.Size(720, 209)
         Me.T_answerDataGridView.TabIndex = 13
         '
+        'Column1
+        '
+        Me.Column1.DataPropertyName = "id_ans"
+        Me.Column1.HeaderText = "MÃ CÂU TRẢ LỜI"
+        Me.Column1.Name = "Column1"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "content_ans"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "NỘI DUNG"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "id_quest"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "MÃ CÂU HỎI"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'true_ans
+        '
+        Me.true_ans.DataPropertyName = "true_ans"
+        Me.true_ans.HeaderText = "CÂU TRẢ LỜI ĐÚNG (0/1)"
+        Me.true_ans.Name = "true_ans"
+        '
         'T_answerBindingSource
         '
         Me.T_answerBindingSource.DataMember = "t_answer"
@@ -314,6 +338,36 @@ Partial Class fmAdd
         Me.T_subjectDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.T_subjectDataGridView.Size = New System.Drawing.Size(719, 92)
         Me.T_subjectDataGridView.TabIndex = 13
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "id_subject"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "MÃ MÔN HỌC"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "content_subject"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "TÊN MÔN HỌC"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'number_quest
+        '
+        Me.number_quest.DataPropertyName = "number_quest"
+        Me.number_quest.HeaderText = "SỐ LƯỢNG CÂU HỎI/ BÀI THI"
+        Me.number_quest.Name = "number_quest"
+        '
+        'timer
+        '
+        Me.timer.DataPropertyName = "timer"
+        Me.timer.HeaderText = "THỜI GIAN LÀM BÀI"
+        Me.timer.Name = "timer"
+        '
+        'date_test
+        '
+        Me.date_test.DataPropertyName = "date_test"
+        Me.date_test.HeaderText = "NGÀY THI"
+        Me.date_test.Name = "date_test"
         '
         'T_subjectBindingSource
         '
@@ -547,60 +601,6 @@ Partial Class fmAdd
         'T_subjectTableAdapter
         '
         Me.T_subjectTableAdapter.ClearBeforeFill = True
-        '
-        'Column1
-        '
-        Me.Column1.DataPropertyName = "id_ans"
-        Me.Column1.HeaderText = "MÃ CÂU TRẢ LỜI"
-        Me.Column1.Name = "Column1"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "content_ans"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "NỘI DUNG"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "id_quest"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "MÃ CÂU HỎI"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'true_ans
-        '
-        Me.true_ans.DataPropertyName = "true_ans"
-        Me.true_ans.HeaderText = "CÂU TRẢ LỜI ĐÚNG (0/1)"
-        Me.true_ans.Name = "true_ans"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "id_subject"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "MÃ MÔN HỌC"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "content_subject"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "TÊN MÔN HỌC"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        '
-        'number_quest
-        '
-        Me.number_quest.DataPropertyName = "number_quest"
-        Me.number_quest.HeaderText = "SỐ LƯỢNG CÂU HỎI/ BÀI THI"
-        Me.number_quest.Name = "number_quest"
-        '
-        'timer
-        '
-        Me.timer.DataPropertyName = "timer"
-        Me.timer.HeaderText = "THỜI GIAN LÀM BÀI"
-        Me.timer.Name = "timer"
-        '
-        'date_test
-        '
-        Me.date_test.DataPropertyName = "date_test"
-        Me.date_test.HeaderText = "NGÀY THI"
-        Me.date_test.Name = "date_test"
         '
         'Db_question1
         '

@@ -300,6 +300,7 @@ Partial Class FmTesting
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FmTesting"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show

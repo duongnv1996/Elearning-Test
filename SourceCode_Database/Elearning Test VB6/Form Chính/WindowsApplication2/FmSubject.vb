@@ -75,20 +75,20 @@ Public Class FmSubject
                     str = reader("date_test").ToString
                     If str.Equals("") = False Then
                         Dim date1 As DateTime = reader("date_test").ToString
-                        dayTest = date1.ToString("dd-MM-yyyy hh:mm")
+                        dayTest = date1.ToString("MM-dd-yyyy")
                     End If
                     
                     str = reader("number_quest").ToString
                     If (str.Equals("") = False) Then
                         numberQuest = Integer.Parse(str)
-                    Else
-                        numberQuest = DEFAULT_NUMBER_QUEST
+                        'Else
+                        '    numberQuest = DEFAULT_NUMBER_QUEST
                     End If
                     str = reader("timer").ToString
                     If (str.Equals("") = False) Then
                         time = Integer.Parse(str)
-                    Else
-                        time = DEFAULT_TIME
+                        'Else
+                        '    time = DEFAULT_TIME
                     End If
 
                     Dim subject As New PanelSubject
@@ -124,7 +124,12 @@ Public Class FmSubject
     End Sub
 
     Public Sub clickSubject(ByVal subject As SubjectItem) Implements IClickSubject.ClickSubject
-        lbDate.Text = "Ngày kiểm tra : " & subject.dayTest.Substring(0, 10)
+        If IsNothing(subject.dayTest) = False Then
+            lbDate.Text = "Ngày kiểm tra : " & subject.dayTest.Substring(0, 10)
+        Else
+            lbDate.Text = "Ngày kiểm tra : "
+        End If
+
         lbTime.Text = "Thời gian : " & subject.time & " phút "
         lbNumberQuest.Text = "Số lượng câu hỏi : " & subject.numberQuest & " câu "
         gbSubject.Text = subject.name
@@ -139,30 +144,35 @@ Public Class FmSubject
     Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
         Try
             conn.Open()
-            Dim sql As New SqlCommand("Select * from t_question where id_subject = '" & _subjectClicked.id & " '", conn)
+            Dim sql As New SqlCommand("Select * from t_question where id_subject = '" & _subjectClicked.id & "'", conn)
             Dim reader As SqlDataReader = sql.ExecuteReader()
 
            
-            If reader.HasRows AndAlso DateDiff(DateInterval.Day, Date.Now, Date.Parse(_subjectClicked.dayTest)) = 0 Then
+            If reader.HasRows AndAlso IsNothing(_subjectClicked.dayTest) = False AndAlso _subjectClicked.time <> 0 AndAlso _subjectClicked.numberQuest <> 0 Then
                 reader.Close()
-
-                Dim sqlExist As New SqlCommand("Select msv from t_mark where id_subject = '" & _subjectClicked.id & " ' and msv =' " & _user.msv & " '", conn)
-                Dim readerExist As SqlDataReader = sqlExist.ExecuteReader()
-                If readerExist.HasRows = True Then
-                    MessageBox.Show("Bạn đã tham gia thi môn học này. Vui lòng chọn môn học khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                Dim diff As Long = DateDiff(DateInterval.Hour, Date.Now, Date.Parse(_subjectClicked.dayTest))
+                '   diff = Math.Round(diff / 24)
+                If diff <= 0 AndAlso diff > -24 Then
+                    Dim sqlExist As New SqlCommand("Select msv from t_mark where id_subject = '" & _subjectClicked.id & "' and msv ='" & _user.msv & "'", conn)
+                    Dim readerExist As SqlDataReader = sqlExist.ExecuteReader()
+                    If readerExist.HasRows = True Then
+                        MessageBox.Show("Bạn đã tham gia thi môn học này. Vui lòng chọn môn học khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        Dim test As New FmTesting
+                        test.subjectItem = _subjectClicked
+                        test.user = _user
+                        conn.Close()
+                        test.Show()
+                        Me.Hide()
+                    End If
                 Else
-                    Dim test As New FmTesting
-                    test.subjectItem = _subjectClicked
-                    test.user = _user
-                    test.Show()
-                    Me.Hide()
+                    MessageBox.Show("Môn học này hiện tại chưa tổ chức thi. Vui lòng chọn môn học khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
                 MessageBox.Show("Môn học này hiện tại chưa tổ chức thi. Vui lòng chọn môn học khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
 
-                conn.Close()
+            End If
+            conn.Close()
 
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -172,30 +182,3 @@ Public Class FmSubject
 
    
 End Class
-
-'' sae show n ra ho a, nchung cơ ban la v.
-' vay cc. 
-' bỏ shift ra
-' thôi để đấy a làm cho
-' lam báo cáo đi
-'ow, á
-'Public Class Ketnoi1
-'    Private conn = "Data Source=MAYTINH-JRUTQDS;Initial Catalog=db_question;Integrated Security=True"
-'    Public Function ktketnoi(ByVal ten As String, ByVal lop As String) As Boolean  '//t?o ra class k?t n?i v?i giá tr? tr? v? là ki?u true, false
-'        Try
-'            Dim sql = "select * from us where name='" & ten & "'  and class= '" & lop & "' "
-'            Dim sqlcon As New SqlConnection(conn)
-'            Dim adapter As New SqlDataAdapter(sql, sqlcon)
-'            Dim dt As New DataTable '//T?o bi?t dt d?ng d? li?u là m?t table
-'            adapter.Fill(dt) '//Đua giá tr? t? k?t n?i vào bi?n dt
-'            If dt.Rows.Count > 0 Then '//>0 có nghia là có giá tr? trong dt
-'                Return True
-'            Else
-'                Return False
-'            End If
-'        Catch ex As Exception
-'            Return False
-'        End Try
-'    End Function
-'End Class
-

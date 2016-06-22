@@ -192,7 +192,7 @@ Public Class fmstudentManager
             MessageBox.Show("Lưu vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information)
             con.Close()
         Catch ex As Exception
-            MessageBox.Show("Không thể lưu vào CSDL", "Không thành công", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Không thể lưu vào CSDL " & ex.ToString, "Không thành công", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
        
     End Sub

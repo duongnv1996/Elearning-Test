@@ -43,6 +43,10 @@ WindowsApplication2
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:WindowsApplication2.My.Resources.Resources.Capture">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:WindowsApplication2.My.Resources.Resources.cfgc_jpg">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

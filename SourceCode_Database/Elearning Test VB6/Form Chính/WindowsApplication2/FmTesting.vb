@@ -292,13 +292,15 @@ Public Class FmTesting
 
     Private Function getMark() As Double
         Dim mark As Double = 0
+        Dim ex As Double = 10 / _subjectItem.numberQuest
+
         For Each itemCtQuest As ctQuestion In listQuest
             Dim isTrueSelected As Boolean = False
           
             'A
             If (itemCtQuest.rbA.Visible = True AndAlso itemCtQuest.rbA.Checked = True) Then
                 If (itemCtQuest.QuestionItem().ans(0).isTrue = True) Then
-                    mark = mark + 0.5
+                    mark = mark + ex
                     isTrueSelected = True
 
                 End If
@@ -311,7 +313,7 @@ Public Class FmTesting
             'B
             If (itemCtQuest.rbB.Checked = True) Then
                 If (itemCtQuest.rbB.Visible = True AndAlso itemCtQuest.QuestionItem().ans(1).isTrue = True) Then
-                    mark = mark + 0.5
+                    mark = mark + ex
                     isTrueSelected = True
                 
                 End If
@@ -323,7 +325,7 @@ Public Class FmTesting
             'C
             If (itemCtQuest.rbC.Visible = True AndAlso itemCtQuest.rbC.Checked = True) Then
                 If (itemCtQuest.QuestionItem().ans(2).isTrue = True) Then
-                    mark = mark + 0.5
+                    mark = mark + ex
                     isTrueSelected = True
                
                 End If
@@ -335,7 +337,7 @@ Public Class FmTesting
             'D
             If (itemCtQuest.rbD.Visible = True AndAlso itemCtQuest.rbD.Checked = True) Then
                 If (itemCtQuest.QuestionItem().ans(3).isTrue = True) Then
-                    mark = mark + 0.5
+                    mark = mark + ex
                     isTrueSelected = True
                
                 End If

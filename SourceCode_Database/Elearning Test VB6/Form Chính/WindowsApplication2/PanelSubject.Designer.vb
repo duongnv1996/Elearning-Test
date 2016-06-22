@@ -23,8 +23,8 @@ Partial Class PanelSubject
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnSubject = New System.Windows.Forms.Button()
-        Me.lbDay = New System.Windows.Forms.Label()
         Me.pic = New System.Windows.Forms.PictureBox()
+        Me.lbDay = New System.Windows.Forms.Label()
         CType(Me.pic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -38,19 +38,6 @@ Partial Class PanelSubject
         Me.btnSubject.TabIndex = 0
         Me.btnSubject.UseVisualStyleBackColor = False
         '
-        'lbDay
-        '
-        Me.lbDay.AutoSize = True
-        Me.lbDay.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.lbDay.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
-        Me.lbDay.ForeColor = System.Drawing.Color.White
-        Me.lbDay.Image = Global.WindowsApplication2.My.Resources.Resources.backgroung
-        Me.lbDay.Location = New System.Drawing.Point(401, 37)
-        Me.lbDay.Name = "lbDay"
-        Me.lbDay.Padding = New System.Windows.Forms.Padding(8)
-        Me.lbDay.Size = New System.Drawing.Size(16, 39)
-        Me.lbDay.TabIndex = 1
-        '
         'pic
         '
         Me.pic.BackColor = System.Drawing.SystemColors.ControlLight
@@ -63,6 +50,19 @@ Partial Class PanelSubject
         Me.pic.TabIndex = 2
         Me.pic.TabStop = False
         Me.pic.Visible = False
+        '
+        'lbDay
+        '
+        Me.lbDay.AutoSize = True
+        Me.lbDay.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.lbDay.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.lbDay.ForeColor = System.Drawing.Color.White
+        Me.lbDay.Image = Global.WindowsApplication2.My.Resources.Resources.backgroung
+        Me.lbDay.Location = New System.Drawing.Point(395, 37)
+        Me.lbDay.Name = "lbDay"
+        Me.lbDay.Padding = New System.Windows.Forms.Padding(8)
+        Me.lbDay.Size = New System.Drawing.Size(16, 39)
+        Me.lbDay.TabIndex = 1
         '
         'PanelSubject
         '

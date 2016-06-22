@@ -22,6 +22,7 @@ Partial Class FmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FmLogin))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btndn = New System.Windows.Forms.Button()
@@ -38,9 +39,10 @@ Partial Class FmLogin
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(258, 169)
+        Me.Label1.Location = New System.Drawing.Point(344, 208)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(162, 24)
+        Me.Label1.Size = New System.Drawing.Size(215, 31)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Tên Đăng Nhập :"
         '
@@ -50,9 +52,10 @@ Partial Class FmLogin
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(258, 278)
+        Me.Label2.Location = New System.Drawing.Point(344, 342)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(114, 24)
+        Me.Label2.Size = New System.Drawing.Size(150, 31)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Mật Khẩu :"
         '
@@ -61,9 +64,10 @@ Partial Class FmLogin
         Me.btndn.BackColor = System.Drawing.Color.Transparent
         Me.btndn.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btndn.ForeColor = System.Drawing.Color.Maroon
-        Me.btndn.Location = New System.Drawing.Point(275, 417)
+        Me.btndn.Location = New System.Drawing.Point(367, 513)
+        Me.btndn.Margin = New System.Windows.Forms.Padding(4)
         Me.btndn.Name = "btndn"
-        Me.btndn.Size = New System.Drawing.Size(124, 52)
+        Me.btndn.Size = New System.Drawing.Size(165, 64)
         Me.btndn.TabIndex = 4
         Me.btndn.Text = "Đăng Nhập"
         Me.btndn.UseVisualStyleBackColor = False
@@ -71,29 +75,32 @@ Partial Class FmLogin
         'txtuser
         '
         Me.txtuser.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtuser.Location = New System.Drawing.Point(262, 221)
+        Me.txtuser.Location = New System.Drawing.Point(349, 272)
+        Me.txtuser.Margin = New System.Windows.Forms.Padding(4)
         Me.txtuser.Multiline = True
         Me.txtuser.Name = "txtuser"
-        Me.txtuser.Size = New System.Drawing.Size(444, 43)
+        Me.txtuser.Size = New System.Drawing.Size(591, 52)
         Me.txtuser.TabIndex = 5
         '
         'txtpass
         '
         Me.txtpass.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtpass.Location = New System.Drawing.Point(262, 324)
+        Me.txtpass.Location = New System.Drawing.Point(349, 399)
+        Me.txtpass.Margin = New System.Windows.Forms.Padding(4)
         Me.txtpass.Multiline = True
         Me.txtpass.Name = "txtpass"
-        Me.txtpass.Size = New System.Drawing.Size(444, 46)
+        Me.txtpass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtpass.Size = New System.Drawing.Size(591, 56)
         Me.txtpass.TabIndex = 6
-        Me.txtpass.UseSystemPasswordChar = True
         '
         'btncan
         '
         Me.btncan.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncan.ForeColor = System.Drawing.Color.Maroon
-        Me.btncan.Location = New System.Drawing.Point(575, 417)
+        Me.btncan.Location = New System.Drawing.Point(767, 513)
+        Me.btncan.Margin = New System.Windows.Forms.Padding(4)
         Me.btncan.Name = "btncan"
-        Me.btncan.Size = New System.Drawing.Size(131, 52)
+        Me.btncan.Size = New System.Drawing.Size(175, 64)
         Me.btncan.TabIndex = 7
         Me.btncan.Text = "Thoát"
         Me.btncan.UseVisualStyleBackColor = True
@@ -101,19 +108,20 @@ Partial Class FmLogin
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.WindowsApplication2.My.Resources.Resources.Capture
-        Me.PictureBox1.Location = New System.Drawing.Point(396, 21)
+        Me.PictureBox1.Location = New System.Drawing.Point(528, 26)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(195, 115)
+        Me.PictureBox1.Size = New System.Drawing.Size(260, 142)
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
         'FmLogin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.WindowsApplication2.My.Resources.Resources.cfgc1
+        Me.BackgroundImage = Global.WindowsApplication2.My.Resources.Resources.cfgc_jpg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(984, 510)
+        Me.ClientSize = New System.Drawing.Size(1312, 633)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btncan)
         Me.Controls.Add(Me.txtpass)
@@ -121,6 +129,9 @@ Partial Class FmLogin
         Me.Controls.Add(Me.btndn)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
         Me.Name = "FmLogin"
         Me.Text = "Đăng Nhập"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
